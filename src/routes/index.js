@@ -8,7 +8,13 @@ const Stack = createNativeStackNavigator();
 export default function StackNavegation() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Inicio" component={Inicio} />
+      <Stack.Screen
+        name="Inicio"
+        component={Inicio}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen name="Venda" component={Venda} />
     </Stack.Navigator>
   );
