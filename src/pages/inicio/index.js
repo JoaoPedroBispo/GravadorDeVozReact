@@ -1,5 +1,7 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import LinearGradient from "react-native-linear-gradient";
 import React from "react";
 import Style from "./style";
 
@@ -14,9 +16,11 @@ export default function Inicio() {
           Easy<Text style={Style.title2}>Redorder</Text>
         </Text>
         <View>
-          <TouchableOpacity style={Style.sejaPro}>
-            <Text style={Style.sejaProText}>Seja Pro</Text>
-          </TouchableOpacity>
+          <LinearGradient colors={["#BFCDE0", "#5D5D81"]} style={Style.sejaPro}>
+            <TouchableOpacity>
+              <Text style={Style.sejaProText}>Seja Pro</Text>
+            </TouchableOpacity>
+          </LinearGradient>
         </View>
       </View>
       <View style={Style.cont1}>
@@ -26,6 +30,18 @@ export default function Inicio() {
         <TouchableOpacity>
           <Text style={Style.textOuvir}>Ouvir</Text>
         </TouchableOpacity>
+      </View>
+
+      <View style={Style.cont2}>
+        <Text style={Style.numerosCont2}>00:00</Text>
+        <Text style={Style.textCont2}>Pronto para começar</Text>
+      </View>
+      <View style={Style.contMic}>
+        <LinearGradient colors={["#BFCDE0", "#5D5D81"]} style={Style.buttonMic}>
+          <TouchableOpacity>
+            <FontAwesome name="microphone" size={50} style={Style.mic} />
+          </TouchableOpacity>
+        </LinearGradient>
       </View>
     </View>
   );

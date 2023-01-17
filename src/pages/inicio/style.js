@@ -58,11 +58,51 @@ const Style = StyleSheet.create({
   },
 
   textGravar: {
+    fontSize: 18,
     color: "#3B3355",
   },
 
   textOuvir: {
+    fontSize: 18,
     color: "#3B3355",
+  },
+
+  cont2: {
+    marginTop: 50,
+    alignItems: "center",
+    flexDirection: "column",
+  },
+
+  numerosCont2: {
+    fontSize: 45,
+    color: "#3B3355",
+  },
+
+  textCont2: {
+    marginTop: 5,
+    fontSize: 17,
+    color: "#3B3355",
+    opacity: 0.5,
+  },
+
+  contMic: {
+    marginTop: 40,
+    alignItems: "center",
+  },
+
+  buttonMic: {
+    height: 90,
+    width: 90,
+    marginTop: 100,
+    borderRadius: 100,
+    backgroundColor: "#5D5D81",
+    justifyContent: "center",
+    alignItems: "center",
+    align: "center",
+  },
+
+  mic: {
+    color: "white",
   },
 });
 
