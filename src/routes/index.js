@@ -15,7 +15,13 @@ export default function StackNavegation() {
           headerShown: false,
         }}
       />
-      <Stack.Screen name="Venda" component={Venda} />
+      <Stack.Screen
+        name="Venda"
+        component={Venda}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 }

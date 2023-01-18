@@ -2,10 +2,15 @@ import { View, Text, TouchableOpacity } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import LinearGradient from "react-native-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import Style from "./style";
 
 export default function Inicio() {
+  const navegation = useNavigation();
+  const navegar = () => {
+    navegation.navigate("Venda");
+  };
   return (
     <View style={Style.continer}>
       <View style={Style.header}>
@@ -16,11 +21,14 @@ export default function Inicio() {
           Easy<Text style={Style.title2}>Redorder</Text>
         </Text>
         <View>
-          <LinearGradient colors={["#BFCDE0", "#5D5D81"]} style={Style.sejaPro}>
-            <TouchableOpacity>
+          <TouchableOpacity onPress={() => navegar()}>
+            <LinearGradient
+              colors={["#BFCDE0", "#5D5D81"]}
+              style={Style.sejaPro}
+            >
               <Text style={Style.sejaProText}>Seja Pro</Text>
-            </TouchableOpacity>
-          </LinearGradient>
+            </LinearGradient>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={Style.cont1}>
@@ -37,11 +45,14 @@ export default function Inicio() {
         <Text style={Style.textCont2}>Pronto para começar</Text>
       </View>
       <View style={Style.contMic}>
-        <LinearGradient colors={["#BFCDE0", "#5D5D81"]} style={Style.buttonMic}>
-          <TouchableOpacity>
+        <TouchableOpacity>
+          <LinearGradient
+            colors={["#BFCDE0", "#5D5D81"]}
+            style={Style.buttonMic}
+          >
             <FontAwesome name="microphone" size={50} style={Style.mic} />
-          </TouchableOpacity>
-        </LinearGradient>
+          </LinearGradient>
+        </TouchableOpacity>
       </View>
     </View>
   );
