@@ -19,15 +19,15 @@ const Style = StyleSheet.create({
   title: {
     marginTop: 31,
     flexDirection: "row",
-    fontSize: 18,
-    color: "#BFCDE0",
+    fontSize: 21,
+    color: "#939fba",
     flex: 1,
   },
 
   title2: {
     marginTop: 31,
     flexDirection: "row",
-    fontSize: 18,
+    fontSize: 21,
     fontWeight: "bold",
     color: "#3B3355",
   },

@@ -4,10 +4,6 @@ const Style = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
-  img: {
-    height: 340,
-    width: 360,
-  },
 
   buttonIcon: {
     marginTop: 30,
@@ -26,21 +22,22 @@ const Style = StyleSheet.create({
   },
 
   linearGradient: {
-    flex: 1,
+    height: 260,
+    width: 360,
     opacity: 1,
     justifyContent: "center",
     alignItems: "center",
   },
 
   cont1: {
-    marginTop: 190,
+    marginTop: 100,
     alignItems: "center",
     flexDirection: "row",
   },
   title: {
     flexDirection: "row",
     fontSize: 30,
-    color: "#BFCDE0",
+    color: "#939fba",
   },
 
   title2: {
@@ -51,8 +48,9 @@ const Style = StyleSheet.create({
   },
 
   buttonMic: {
-    height: 30,
-    width: 30,
+    height: 40,
+    width: 40,
+    marginRight: 5,
     borderRadius: 100,
     backgroundColor: "#5D5D81",
     justifyContent: "center",
@@ -66,14 +64,137 @@ const Style = StyleSheet.create({
 
   items: {
     alignItems: "center",
-    flexDirection: "column",
+    justifyContent: "space-between",
+    flexDirection: "row",
   },
 
   item: {
-    height: 50,
-    width: 50,
-    marginTop: 30,
+    marginTop: -40,
+    height: 90,
+    width: 90,
+    left: -40,
+    marginRight: 15,
+    borderRadius: 5,
     backgroundColor: "#D9D9D9",
+  },
+
+  items2: {
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
+  },
+
+  item1: {
+    width: 90,
+    height: 90,
+    borderWidth: 2,
+    margin: 10,
+    marginTop: 15,
+    borderRadius: 10,
+    borderColor: "#5D5D81",
+    backgroundColor: "white",
+    align: "center",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  preçoItem1: {
+    fontSize: 23,
+    fontWeight: "bold",
+    color: "#5D5D81",
+  },
+  textItem1: {
+    fontSize: 18,
+    color: "#5D5D81",
+  },
+
+  item2: {
+    width: 90,
+    height: 90,
+    borderWidth: 2,
+    margin: 10,
+    marginTop: 15,
+    borderRadius: 10,
+    borderColor: "#5D5D81",
+    backgroundColor: "white",
+    align: "center",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  item3: {
+    width: 100,
+    height: 100,
+    borderWidth: 3,
+    margin: 10,
+    marginTop: 15,
+    borderRadius: 10,
+    borderColor: "#5D5D81",
+    backgroundColor: "white",
+    align: "center",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  promoItem3: {
+    textDecorationLine: "line-through",
+    fontSize: 15,
+    color: "#5D5D81",
+  },
+
+  preçoItem3: {
+    fontSize: 23,
+    fontWeight: "bold",
+    color: "#5D5D81",
+  },
+  textItem3: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#5D5D81",
+  },
+
+  circulo1: {
+    width: 20,
+    height: 20,
+    marginTop: -5,
+    borderRadius: 100,
+    borderWidth: 1,
+    margin: 45,
+  },
+
+  circulo3: {
+    width: 20,
+    height: 20,
+    marginTop: -5,
+    borderRadius: 100,
+    borderWidth: 1,
+    margin: 50,
+    borderColor: "#5D5D81",
+    backgroundColor: "#5D5D81",
+  },
+
+  button: {
+    Left: 15,
+    Right: 15,
+    height: 40,
+    margin: 15,
+    marginTop: -35,
+    align: "center",
+    borderRadius: 10,
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5D5D81",
+  },
+
+  textButton: {
+    fontSize: 20,
+    color: "white",
+  },
+
+  subText: {
+    marginTop: -10,
+    margin: 15,
+    fontSize: 7,
   },
 });
 
