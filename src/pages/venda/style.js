@@ -5,11 +5,15 @@ const Style = StyleSheet.create({
     backgroundColor: "white",
   },
 
+  img: {
+    flex: 0.6,
+  },
+
   buttonIcon: {
     marginTop: 30,
     height: 35,
     width: 35,
-    left: 310,
+    left: "88%",
     borderWidth: 2,
     borderRadius: 100,
     justifyContent: "center",
@@ -23,7 +27,7 @@ const Style = StyleSheet.create({
 
   linearGradient: {
     height: 260,
-    width: 360,
+    width: null,
     opacity: 1,
     justifyContent: "center",
     alignItems: "center",
