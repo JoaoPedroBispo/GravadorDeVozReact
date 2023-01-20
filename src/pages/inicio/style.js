@@ -3,6 +3,7 @@ const Style = StyleSheet.create({
   continer: {
     flex: 1,
     backgroundColor: "white",
+    justifyContent: "flex-end",
   },
 
   header: {
@@ -51,26 +52,40 @@ const Style = StyleSheet.create({
   },
 
   cont1: {
-    marginTop: 30,
-    margin: 65,
+    marginTop: 25,
     flexDirection: "row",
     justifyContent: "space-between",
   },
 
   textGravar: {
+    left: 70,
     fontSize: 18,
     color: "#3B3355",
   },
 
   textOuvir: {
+    right: 70,
     fontSize: 18,
     color: "#3B3355",
   },
 
+  risco1: {
+    width: 50,
+    height: 2,
+    left: 73,
+    marginTop: 1,
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: "#5D5D81",
+    backgroundColor: "#5D5D81",
+  },
+
   cont2: {
-    marginTop: 50,
+    flex: 1,
     alignItems: "center",
+    textAlign: "center",
     flexDirection: "column",
+    justifyContent: "center",
   },
 
   numerosCont2: {
@@ -79,21 +94,20 @@ const Style = StyleSheet.create({
   },
 
   textCont2: {
-    marginTop: 5,
     fontSize: 17,
     color: "#3B3355",
     opacity: 0.5,
   },
 
   contMic: {
-    marginTop: 40,
+    flex: 1,
     alignItems: "center",
+    justifyContent: "center",
   },
 
   buttonMic: {
     height: 90,
     width: 90,
-    marginTop: 100,
     borderRadius: 100,
     backgroundColor: "#5D5D81",
     justifyContent: "center",

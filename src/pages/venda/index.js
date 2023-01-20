@@ -15,7 +15,7 @@ import Style from "./style";
 export default function Venda() {
   const navegation = useNavigation();
   const navegar = () => {
-    navegation.navigate("Inicio");
+    navegation.goBack();
   };
 
   return (
