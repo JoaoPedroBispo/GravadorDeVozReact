@@ -79,6 +79,80 @@ const Style = StyleSheet.create({
     backgroundColor: "#5D5D81",
   },
 
+  contAudio: {
+    flex: 0.2,
+    marginTop: 20,
+    margin: 8,
+  },
+
+  textAudio: {
+    color: "#000000",
+    fontSize: 19,
+  },
+
+  subTextCont: {
+    flexDirection: "row",
+  },
+
+  subText: {
+    color: "#000000",
+    fontSize: 12,
+    opacity: 0.5,
+  },
+
+  subText2: {
+    color: "#000000",
+    left: 10,
+    fontSize: 12,
+    opacity: 0.5,
+  },
+
+  subText3: {
+    color: "#000000",
+    left: 20,
+    fontSize: 12,
+    opacity: 0.5,
+  },
+
+  buttonEstudo: {
+    marginTop: 3,
+    width: 50,
+    height: null,
+    borderRadius: 3,
+    color: "#fff",
+    backgroundColor: "#3B3355",
+    textAlign: "center",
+  },
+
+  subText4: {
+    color: "#000000",
+    marginTop: 6,
+    left: 10,
+    fontSize: 12,
+    opacity: 0.5,
+  },
+
+  iconAudio: {
+    color: "#3B3355",
+    marginTop: -35,
+    left: "80%",
+  },
+
+  iconAudio2: {
+    color: "#3B3355",
+    marginTop: -35,
+    left: "90%",
+  },
+
+  riscoAudio: {
+    height: 1,
+    marginTop: 5,
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: "#BFCDE0",
+    backgroundColor: "#BFCDE0",
+  },
+
   contPlayer: {
     flex: 1,
     alignItems: "center",

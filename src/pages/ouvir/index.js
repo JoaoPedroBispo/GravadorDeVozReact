@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import LinearGradient from "react-native-linear-gradient";
@@ -24,6 +25,7 @@ export default function Ouvir() {
         <Text style={Style.title}>
           Easy<Text style={Style.title2}>Redorder</Text>
         </Text>
+
         <View>
           <TouchableOpacity onPress={() => venda()}>
             <LinearGradient
@@ -35,16 +37,46 @@ export default function Ouvir() {
           </TouchableOpacity>
         </View>
       </View>
+
       <View style={Style.cont1}>
         <TouchableOpacity>
           <Text style={Style.textGravar} onPress={() => inicio()}>
             Gravar
           </Text>
         </TouchableOpacity>
+
         <TouchableOpacity>
           <Text style={Style.textOuvir}>Ouvir</Text>
           <View style={Style.risco2}></View>
         </TouchableOpacity>
+      </View>
+
+      <View style={Style.contAudio}>
+        <Text style={Style.textAudio}>Teste.mp4</Text>
+        <View style={Style.subTextCont}>
+          <Text style={Style.subText}>12/01/2023</Text>
+          <Text style={Style.subText2}>14:30</Text>
+          <Text style={Style.subText3}>46,21kb</Text>
+        </View>
+
+        <View style={Style.subTextCont}>
+          <Text style={Style.buttonEstudo}>Estudo</Text>
+          <Text style={Style.subText4}>00:45</Text>
+        </View>
+
+        <TouchableOpacity>
+          <Feather name="scissors" size={25} style={Style.iconAudio} />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Ionicons
+            name="ellipsis-vertical"
+            size={25}
+            style={Style.iconAudio2}
+          />
+        </TouchableOpacity>
+
+        <View style={Style.riscoAudio}></View>
       </View>
 
       <View style={Style.contPlayer}>
