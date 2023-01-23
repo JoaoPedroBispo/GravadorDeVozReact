@@ -15,10 +15,14 @@ export default function Inicio() {
   const gravar = () => {
     navegation.navigate("Ouvir");
   };
+
+  const configurações = () => {
+    navegation.navigate("Configurações");
+  };
   return (
     <View style={Style.continer}>
       <View style={Style.header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => configurações()}>
           <Feather name="menu" size={32} style={Style.icon} />
         </TouchableOpacity>
         <Text style={Style.title}>
