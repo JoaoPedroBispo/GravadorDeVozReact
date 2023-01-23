@@ -58,11 +58,11 @@ export default function Ouvir() {
 
           <View style={Style.contPlayer2}>
             <TouchableOpacity>
-              <SimpleLineIcons name="loop" size={25} style={Style.play} />
+              <SimpleLineIcons name="loop" size={20} style={Style.play} />
             </TouchableOpacity>
 
             <TouchableOpacity>
-              <AntDesign name="banckward" size={30} style={Style.play} />
+              <AntDesign name="banckward" size={25} style={Style.play} />
             </TouchableOpacity>
 
             <TouchableOpacity>
@@ -70,7 +70,7 @@ export default function Ouvir() {
             </TouchableOpacity>
 
             <TouchableOpacity>
-              <AntDesign name="forward" size={30} style={Style.play} />
+              <AntDesign name="forward" size={25} style={Style.play} />
             </TouchableOpacity>
 
             <TouchableOpacity>

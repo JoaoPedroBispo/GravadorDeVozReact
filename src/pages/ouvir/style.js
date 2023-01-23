@@ -70,31 +70,13 @@ const Style = StyleSheet.create({
   },
 
   risco2: {
-    width: 50,
     height: 2,
-    right: 73,
+    right: 70,
     marginTop: 1,
     borderRadius: 100,
     borderWidth: 1,
     borderColor: "#5D5D81",
     backgroundColor: "#5D5D81",
-  },
-
-  cont2: {
-    marginTop: 50,
-    alignItems: "center",
-    flexDirection: "column",
-  },
-
-  numerosCont2: {
-    fontSize: 45,
-    color: "#3B3355",
-  },
-
-  textCont2: {
-    fontSize: 17,
-    color: "#3B3355",
-    opacity: 0.5,
   },
 
   contPlayer: {
@@ -144,7 +126,7 @@ const Style = StyleSheet.create({
   },
 
   contPlayer2: {
-    height: 100,
+    height: 90,
     width: 360,
 
     justifyContent: "center",
@@ -162,7 +144,7 @@ const Style = StyleSheet.create({
   textPlayer: {
     marginRight: 15,
     color: "white",
-    fontSize: 25,
+    fontSize: 20,
   },
 });
 

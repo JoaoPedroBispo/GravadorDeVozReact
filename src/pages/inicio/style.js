@@ -3,7 +3,6 @@ const Style = StyleSheet.create({
   continer: {
     flex: 1,
     backgroundColor: "white",
-    justifyContent: "flex-end",
   },
 
   header: {
@@ -70,9 +69,8 @@ const Style = StyleSheet.create({
   },
 
   risco1: {
-    width: 50,
     height: 2,
-    left: 73,
+    left: 70,
     marginTop: 1,
     borderRadius: 100,
     borderWidth: 1,
@@ -83,7 +81,6 @@ const Style = StyleSheet.create({
   cont2: {
     flex: 1,
     alignItems: "center",
-    textAlign: "center",
     flexDirection: "column",
     justifyContent: "center",
   },
