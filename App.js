@@ -1,12 +1,13 @@
-import React from "react";
-import Inicio from "./src/pages/inicio";
+import "react-native-gesture-handler";
+import StackNavigation from "./src/routes";
 import { NavigationContainer } from "@react-navigation/native";
-import StackNavigator from "./src/routes";
+import React from "react";
+import Drawer from "./src/routes/drawer";
 
 export default function App() {
   return (
     <NavigationContainer>
-      <StackNavigator />
+      <Drawer />
     </NavigationContainer>
   );
 }

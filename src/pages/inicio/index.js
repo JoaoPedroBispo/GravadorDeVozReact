@@ -22,7 +22,7 @@ export default function Inicio() {
   return (
     <View style={Style.continer}>
       <View style={Style.header}>
-        <TouchableOpacity onPress={() => configurações()}>
+        <TouchableOpacity onPress={() => navegation.openDrawer()}>
           <Feather name="menu" size={32} style={Style.icon} />
         </TouchableOpacity>
         <Text style={Style.title}>
