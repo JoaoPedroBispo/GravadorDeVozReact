@@ -15,6 +15,7 @@ export default function StackNavegation() {
         component={Inicio}
         options={{
           headerShown: false,
+          animation: "none",
         }}
       />
       <Stack.Screen
@@ -22,6 +23,7 @@ export default function StackNavegation() {
         component={Venda}
         options={{
           headerShown: false,
+          animation: "none",
         }}
       />
 
@@ -38,6 +40,7 @@ export default function StackNavegation() {
         component={Configurações}
         options={{
           headerShown: false,
+          animation: "none",
         }}
       />
     </Stack.Navigator>

@@ -3,17 +3,16 @@ const Style = StyleSheet.create({
   continer: {
     flex: 1,
     backgroundColor: "white",
+    justifyContent: "flex-end",
   },
 
-  img: {
-    flex: 0.6,
-  },
+  img: {},
 
   buttonIcon: {
-    marginTop: 30,
     height: 35,
     width: 35,
     left: "88%",
+    top: 20,
     borderWidth: 2,
     borderRadius: 100,
     justifyContent: "center",
@@ -34,11 +33,11 @@ const Style = StyleSheet.create({
   },
 
   cont1: {
-    marginTop: 100,
     alignItems: "center",
     flexDirection: "row",
   },
   title: {
+    top: 70,
     flexDirection: "row",
     fontSize: 30,
     color: "#939fba",
@@ -54,6 +53,7 @@ const Style = StyleSheet.create({
   buttonMic: {
     height: 40,
     width: 40,
+    top: 70,
     marginRight: 5,
     borderRadius: 100,
     backgroundColor: "#5D5D81",
@@ -67,22 +67,25 @@ const Style = StyleSheet.create({
   },
 
   items: {
+    flex: 0.3,
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
   },
 
   item: {
-    marginTop: -40,
     height: 90,
     width: 90,
-    left: -40,
+    right: 40,
     marginRight: 15,
     borderRadius: 5,
     backgroundColor: "#D9D9D9",
   },
 
   items2: {
+    flex: 0.5,
+    marginLeft: 10,
+    marginRight: 10,
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
@@ -92,8 +95,6 @@ const Style = StyleSheet.create({
     width: 90,
     height: 90,
     borderWidth: 2,
-    margin: 10,
-    marginTop: 15,
     borderRadius: 10,
     borderColor: "#5D5D81",
     backgroundColor: "white",
@@ -111,12 +112,19 @@ const Style = StyleSheet.create({
     color: "#5D5D81",
   },
 
+  circulo1: {
+    width: 15,
+    height: 15,
+    top: 5,
+    alignSelf: "center",
+    borderRadius: 100,
+    borderWidth: 1,
+  },
+
   item2: {
     width: 90,
     height: 90,
     borderWidth: 2,
-    margin: 10,
-    marginTop: 15,
     borderRadius: 10,
     borderColor: "#5D5D81",
     backgroundColor: "white",
@@ -129,8 +137,6 @@ const Style = StyleSheet.create({
     width: 100,
     height: 100,
     borderWidth: 3,
-    margin: 10,
-    marginTop: 15,
     borderRadius: 10,
     borderColor: "#5D5D81",
     backgroundColor: "white",
@@ -156,33 +162,26 @@ const Style = StyleSheet.create({
     color: "#5D5D81",
   },
 
-  circulo1: {
-    width: 20,
-    height: 20,
-    marginTop: -5,
-    borderRadius: 100,
-    borderWidth: 1,
-    margin: 45,
-  },
-
   circulo3: {
     width: 20,
     height: 20,
-    marginTop: -5,
+    top: 5,
+    alignSelf: "center",
     borderRadius: 100,
     borderWidth: 1,
-    margin: 50,
     borderColor: "#5D5D81",
     backgroundColor: "#5D5D81",
   },
 
+  contButton: {
+    flex: 0.1,
+    alignSelf: "center",
+  },
+
   button: {
-    Left: 15,
-    Right: 15,
-    height: 40,
-    margin: 15,
-    marginTop: -35,
-    align: "center",
+    height: 35,
+    width: 340,
+    top: 10,
     borderRadius: 10,
     textAlign: "center",
     alignItems: "center",
@@ -196,9 +195,13 @@ const Style = StyleSheet.create({
   },
 
   subText: {
-    marginTop: -10,
-    margin: 15,
+    flex: 0.2,
+    top: 15,
+    height: 35,
+    width: 340,
+    margin: 2,
     fontSize: 7,
+    alignSelf: "center",
   },
 });
 
