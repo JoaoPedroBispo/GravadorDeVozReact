@@ -41,7 +41,7 @@ export default function drawer() {
         options={{
           headerShown: false,
           animation: "none",
-          title: () => <Text style={Style.text}>Atualize para o Pro</Text>,
+          title: () => <Text style={Style.textPro}>Atualize para o Pro</Text>,
           drawerIcon: () => (
             <LinearGradient
               style={Style.sejaPro}
@@ -60,6 +60,7 @@ export default function drawer() {
         options={{
           headerShown: false,
           animation: "none",
+          title: () => <Text style={Style.text}>Configurações</Text>,
           drawerIcon: () => (
             <Ionicons name="settings-sharp" size={25} style={Style.icon} />
           ),

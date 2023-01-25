@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
+
 const Style = StyleSheet.create({
   title: {
     marginTop: 5,
@@ -22,7 +24,14 @@ const Style = StyleSheet.create({
 
   text: {
     fontSize: 15,
-    opacity: 0.6,
+    right: 5,
+    color: "#3B3355",
+  },
+
+  textPro: {
+    fontSize: 16,
+    right: 15,
+    color: "#BFCDE0",
   },
 
   sejaPro: {
