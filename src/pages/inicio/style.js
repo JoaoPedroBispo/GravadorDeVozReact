@@ -115,6 +115,77 @@ const Style = StyleSheet.create({
   mic: {
     color: "white",
   },
+
+  centeredView: {
+    flex: 1,
+
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalView: {
+    backgroundColor: "white",
+    borderRadius: 10,
+    width: 300,
+    height: 250,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalText: {
+    color: "#000",
+    fontSize: 18,
+    top: 15,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+
+  input: {
+    borderWidth: 1,
+    borderColor: "#3B3355",
+    padding: 10,
+    borderRadius: 5,
+    width: 250,
+    height: 47,
+    top: 30,
+    color: "#3B3355",
+  },
+
+  contButtton: {
+    flexDirection: "row",
+  },
+
+  salvar: {
+    height: 35,
+    width: 150,
+    right: 10,
+    top: 125,
+    borderRadius: 10,
+    align: "center",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5D5D81",
+  },
+
+  cancelar: {
+    height: 35,
+    width: 100,
+    top: 125,
+    left: 10,
+    borderRadius: 10,
+    align: "center",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5D5D81",
+  },
 });
 
 export default Style;

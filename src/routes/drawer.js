@@ -81,8 +81,8 @@ export default function drawer() {
       />
 
       <Drawer.Screen
-        name="Apps"
-        component={Inicio}
+        name="Ouvir"
+        component={Ouvir}
         options={{
           headerShown: false,
           animation: "none",

@@ -6,9 +6,13 @@ import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
+import { useState } from "react";
 import Style from "./style";
 
 export default function Ouvir() {
+  const [gravarState, setGravarState] = useState(false);
+  const [playerState, setPlayerState] = useState(false);
+
   const navegation = useNavigation();
   const venda = () => {
     navegation.navigate("Venda");
@@ -16,6 +20,15 @@ export default function Ouvir() {
   const inicio = () => {
     navegation.goBack();
   };
+
+  function toggleMusicPlay() {
+    setPlayerState(!playerState);
+  }
+
+  function gravar() {
+    setGravarState(!gravarState);
+  }
+
   return (
     <View style={Style.continer}>
       <View style={Style.header}>
@@ -97,8 +110,12 @@ export default function Ouvir() {
               <AntDesign name="banckward" size={25} style={Style.play} />
             </TouchableOpacity>
 
-            <TouchableOpacity>
-              <AntDesign name="play" size={65} style={Style.play} />
+            <TouchableOpacity onPress={toggleMusicPlay}>
+              {playerState ? (
+                <AntDesign name="play" size={65} style={Style.play} />
+              ) : (
+                <AntDesign name="pausecircle" size={65} style={Style.play} />
+              )}
             </TouchableOpacity>
 
             <TouchableOpacity>
