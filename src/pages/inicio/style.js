@@ -118,7 +118,8 @@ const Style = StyleSheet.create({
 
   centeredView: {
     flex: 1,
-
+    width: 360,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
@@ -126,8 +127,8 @@ const Style = StyleSheet.create({
   modalView: {
     backgroundColor: "white",
     borderRadius: 10,
-    width: 300,
-    height: 250,
+    width: 330,
+    height: 280,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -151,9 +152,11 @@ const Style = StyleSheet.create({
     borderColor: "#3B3355",
     padding: 10,
     borderRadius: 5,
-    width: 250,
+    width: 260,
     height: 47,
     top: 30,
+    fontSize: 18,
+    textAlign: "left",
     color: "#3B3355",
   },
 
@@ -162,10 +165,10 @@ const Style = StyleSheet.create({
   },
 
   salvar: {
-    height: 35,
-    width: 150,
+    height: 42,
+    width: 160,
     right: 10,
-    top: 125,
+    top: "100%",
     borderRadius: 10,
     align: "center",
     fontWeight: "bold",
@@ -174,10 +177,15 @@ const Style = StyleSheet.create({
     backgroundColor: "#5D5D81",
   },
 
+  SalvarText: {
+    color: "white",
+    fontSize: 19,
+  },
+
   cancelar: {
-    height: 35,
-    width: 100,
-    top: 125,
+    height: 42,
+    width: 92,
+    top: "100%",
     left: 10,
     borderRadius: 10,
     align: "center",
@@ -185,6 +193,95 @@ const Style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#5D5D81",
+  },
+
+  cancelarText: {
+    color: "white",
+    fontSize: 15,
+  },
+
+  dropdown1BtnStyle: {
+    width: 260,
+    height: 47,
+    top: 40,
+    backgroundColor: "#FFF",
+    borderRadius: 7,
+    borderWidth: 1,
+    borderColor: "#3B3355",
+    marginBottom: 30,
+    opacity: 1,
+  },
+  dropdown1BtnTxtStyle: {
+    color: "#000",
+    textAlign: "left",
+  },
+  dropdown1RowStyle: {
+    backgroundColor: "#EFEFEF",
+  },
+  dropdown1RowTxtStyle: {
+    color: "#000",
+    left: 10,
+    textAlign: "left",
+  },
+
+  centeredView2: {
+    flex: 1,
+    width: 360,
+    backgroundColor: "rgba(0, 0, 0, 0.0)",
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  modalText2: {
+    color: "#000",
+    fontSize: 19,
+    margin: 10,
+    top: 10,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+
+  modalText3: {
+    color: "#000",
+    fontSize: 14,
+    margin: 12,
+    top: 10,
+    lineHeight: 18,
+    alignSelf: "center",
+    textAlign: "center",
+  },
+
+  contButtton2: {
+    justifyContent: "flex-end",
+    top: 20,
+  },
+
+  avaliar: {
+    height: 48,
+    width: 232,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5D5D81",
+  },
+
+  avaliarText: {
+    color: "white",
+    fontSize: 20,
+  },
+
+  ratingBarStyle: {
+    justifyContent: "center",
+    flexDirection: "row",
+    marginTop: 30,
+  },
+
+  textStyle: {
+    textAlign: "center",
+    fontSize: 23,
+    color: "#000",
+    marginTop: 15,
   },
 });
 

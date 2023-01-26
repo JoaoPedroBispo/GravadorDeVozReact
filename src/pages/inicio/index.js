@@ -1,8 +1,12 @@
 import { View, Text, TouchableOpacity, Modal, TextInput } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Entypo from "react-native-vector-icons/Entypo";
+import Octicons from "react-native-vector-icons/Octicons";
 import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
+import SelectDropdown from "react-native-select-dropdown";
+import modalStar from "./function";
 import React, { useState } from "react";
 import Style from "./style";
 
@@ -15,11 +19,79 @@ export default function Inicio() {
   const gravar = () => {
     navegation.navigate("Ouvir");
   };
+  const inicio = () => {
+    navegation.goBack();
+  };
+
+  const [defaultRating, setDefaultRating] = useState(2);
+  const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]);
 
   const [modalVisible, setModalVisible] = useState(false);
 
+  const [modalStar, setModalStar] = useState(false);
+
+  const countries = ["Sem Tag", "Estudo", "Faculdade", "Minhas Músicas"];
+
+  const RatingBar = () => {
+    return (
+      <View style={Style.ratingBarStyle}>
+        {maxRating.map((item, key) => {
+          return (
+            <TouchableOpacity
+              activeOpacity={0.7}
+              key={item}
+              onPress={() => setDefaultRating(item)}
+            >
+              <Octicons
+                source={item <= defaultRating ? "star" : "star-fill"}
+                size={30}
+                color="#BFCDE0"
+              />
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    );
+  };
+
   return (
     <View style={Style.continer}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalStar}
+        enum="overFullScreen"
+        onRequestClose={() => {
+          setModalStar(!modalStar);
+        }}
+      >
+        <View style={Style.centeredView2}>
+          <View style={Style.modalView}>
+            <Text style={Style.modalText2}>
+              Parabéns! Você gravou seu primeiro áudio!
+            </Text>
+            <View style={Style.contText3}>
+              <Text style={Style.modalText3}>
+                Nos avalie com 5 estrelas se estiver gostando do aplicativo!
+              </Text>
+            </View>
+
+            <RatingBar />
+
+            <View style={Style.contButtton2}>
+              <TouchableOpacity onPress={() => gravar()}>
+                <LinearGradient
+                  colors={["#BFCDE0", "#5D5D81"]}
+                  style={Style.avaliar}
+                >
+                  <Text style={Style.avaliarText}>Avaliar</Text>
+                </LinearGradient>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+
       <Modal
         animationType="slide"
         transparent={true}
@@ -29,7 +101,6 @@ export default function Inicio() {
           setModalVisible(!modalVisible);
         }}
       >
-        <View style={Style.modal}></View>
         <View style={Style.centeredView}>
           <View style={Style.modalView}>
             <Text style={Style.modalText}>Salvar Gravação</Text>
@@ -39,22 +110,51 @@ export default function Inicio() {
               placeholder="Nome"
             ></TextInput>
 
+            <SelectDropdown
+              data={countries}
+              onSelect={(selectedItem, index) => {
+                console.log(selectedItem, index);
+              }}
+              defaultButtonText={"Tag"}
+              buttonTextAfterSelection={(selectedItem, index) => {
+                return selectedItem;
+              }}
+              rowTextForSelection={(item, index) => {
+                return item;
+              }}
+              buttonStyle={Style.dropdown1BtnStyle}
+              buttonTextStyle={Style.dropdown1BtnTxtStyle}
+              renderDropdownIcon={(isOpened) => {
+                return (
+                  <Entypo
+                    name={isOpened ? "chevron-up" : "chevron-down"}
+                    color={"#3B3355"}
+                    size={18}
+                  />
+                );
+              }}
+              dropdownIconPosition={"right"}
+              dropdownStyle={Style.dropdown1BtnTxtStyle}
+              rowStyle={Style.dropdown1RowStyle}
+              rowTextStyle={Style.dropdown1RowTxtStyle}
+            />
+
             <View style={Style.contButtton}>
-              <TouchableOpacity onPress={() => venda()}>
+              <TouchableOpacity onPress={() => setModalStar(true)}>
                 <LinearGradient
                   colors={["#BFCDE0", "#5D5D81"]}
                   style={Style.salvar}
                 >
-                  <Text style={Style.sejaProText}>Salva</Text>
+                  <Text style={Style.SalvarText}>Salvar</Text>
                 </LinearGradient>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => venda()}>
+              <TouchableOpacity onPress={() => setModalVisible(true)}>
                 <LinearGradient
                   colors={["#5D5D81", "#3B3355"]}
                   style={Style.cancelar}
                 >
-                  <Text style={Style.sejaProText}>Cancelar</Text>
+                  <Text style={Style.cancelarText}>Cancelar</Text>
                 </LinearGradient>
               </TouchableOpacity>
             </View>
@@ -98,7 +198,7 @@ export default function Inicio() {
       </View>
 
       <View style={Style.contMic}>
-        <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
+        <TouchableOpacity onPress={() => setModalVisible(true)}>
           <LinearGradient
             colors={["#BFCDE0", "#5D5D81"]}
             style={Style.buttonMic}
