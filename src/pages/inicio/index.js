@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, Modal, TextInput } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Entypo from "react-native-vector-icons/Entypo";
-import Octicons from "react-native-vector-icons/Octicons";
+import AntDesign from "react-native-vector-icons/AntDesign";
 import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
@@ -23,7 +23,7 @@ export default function Inicio() {
     navegation.goBack();
   };
 
-  const [defaultRating, setDefaultRating] = useState(2);
+  const [defaultRating, setDefaultRating] = useState(0);
   const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]);
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -35,16 +35,16 @@ export default function Inicio() {
   const RatingBar = () => {
     return (
       <View style={Style.ratingBarStyle}>
-        {maxRating.map((item, key) => {
+        {maxRating.map((item) => {
           return (
             <TouchableOpacity
-              activeOpacity={0.7}
+              activeOpacity={0.9}
               key={item}
               onPress={() => setDefaultRating(item)}
             >
-              <Octicons
-                source={item <= defaultRating ? "star" : "star-fill"}
-                size={30}
+              <AntDesign
+                name={item <= defaultRating ? "star" : "staro"}
+                size={40}
                 color="#BFCDE0"
               />
             </TouchableOpacity>
@@ -67,6 +67,14 @@ export default function Inicio() {
       >
         <View style={Style.centeredView2}>
           <View style={Style.modalView}>
+            <TouchableOpacity style={Style.buttonIcon}>
+              <LinearGradient
+                colors={["#BFCDE0", "#5D5D81"]}
+                style={Style.closeButton}
+              >
+                <AntDesign name="close" size={20} style={Style.icon} />
+              </LinearGradient>
+            </TouchableOpacity>
             <Text style={Style.modalText2}>
               Parabéns! Você gravou seu primeiro áudio!
             </Text>
@@ -79,7 +87,15 @@ export default function Inicio() {
             <RatingBar />
 
             <View style={Style.contButtton2}>
-              <TouchableOpacity onPress={() => gravar()}>
+              <TouchableOpacity
+                onPress={() => {
+                  if (defaultRating >= 4) {
+                    console.log(defaultRating);
+                  } else {
+                    setModalStar(false);
+                  }
+                }}
+              >
                 <LinearGradient
                   colors={["#BFCDE0", "#5D5D81"]}
                   style={Style.avaliar}
@@ -149,7 +165,7 @@ export default function Inicio() {
                 </LinearGradient>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => setModalVisible(true)}>
+              <TouchableOpacity onPress={() => setModalVisible(false)}>
                 <LinearGradient
                   colors={["#5D5D81", "#3B3355"]}
                   style={Style.cancelar}

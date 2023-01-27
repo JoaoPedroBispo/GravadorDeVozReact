@@ -283,6 +283,24 @@ const Style = StyleSheet.create({
     color: "#000",
     marginTop: 15,
   },
+
+  buttonIcon: {
+    left: "95%",
+    top: -10,
+    position: "absolute",
+  },
+  icon: {
+    color: "white",
+  },
+
+  closeButton: {
+    height: 30,
+    width: 30,
+    borderRadius: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5D5D81",
+  },
 });
 
 export default Style;
