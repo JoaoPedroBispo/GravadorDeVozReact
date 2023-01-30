@@ -112,9 +112,9 @@ export default function Ouvir() {
 
             <TouchableOpacity onPress={toggleMusicPlay}>
               {playerState ? (
-                <AntDesign name="play" size={65} style={Style.play} />
-              ) : (
                 <AntDesign name="pausecircle" size={65} style={Style.play} />
+              ) : (
+                <AntDesign name="play" size={65} style={Style.play} />
               )}
             </TouchableOpacity>
 

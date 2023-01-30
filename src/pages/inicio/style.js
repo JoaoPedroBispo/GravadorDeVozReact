@@ -289,7 +289,7 @@ const Style = StyleSheet.create({
     top: -10,
     position: "absolute",
   },
-  icon: {
+  icon2: {
     color: "white",
   },
 
