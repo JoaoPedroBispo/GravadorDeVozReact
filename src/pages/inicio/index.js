@@ -16,6 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import React, { useState } from "react";
 import Style from "./style";
+
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
 
 const audioRecorderPlayer = new AudioRecorderPlayer();
@@ -289,7 +290,6 @@ export default function Inicio() {
 
       <View style={Style.cont2}>
         <Text style={Style.numerosCont2}>{tempo.recordTime}</Text>
-
         <Text style={Style.textCont2}>
           {gravando > 0 ? frase.grav : frase.inicio}
         </Text>
