@@ -112,10 +112,6 @@ const Style = StyleSheet.create({
     align: "center",
   },
 
-  mic: {
-    color: "white",
-  },
-
   centeredView: {
     flex: 1,
     width: 360,

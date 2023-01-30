@@ -25,10 +25,6 @@ export default function Ouvir() {
     setPlayerState(!playerState);
   }
 
-  function gravar() {
-    setGravarState(!gravarState);
-  }
-
   return (
     <View style={Style.continer}>
       <View style={Style.header}>

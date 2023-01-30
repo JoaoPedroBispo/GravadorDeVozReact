@@ -32,6 +32,11 @@ export default function Inicio() {
     navegation.goBack();
   };
 
+  const [frase, setFrase] = useState({
+    inicio: "Pronto para começar",
+    grav: "Gravando",
+  });
+
   //Gravação
 
   const [tempo, setTempo] = useState({
@@ -284,7 +289,10 @@ export default function Inicio() {
 
       <View style={Style.cont2}>
         <Text style={Style.numerosCont2}>{tempo.recordTime}</Text>
-        <Text style={Style.textCont2}>Pronto para começar</Text>
+
+        <Text style={Style.textCont2}>
+          {gravando > 0 ? frase.grav : frase.inicio}
+        </Text>
       </View>
 
       <View style={Style.contMic}>
@@ -293,7 +301,11 @@ export default function Inicio() {
             colors={["#BFCDE0", "#5D5D81"]}
             style={Style.buttonMic}
           >
-            <FontAwesome name="microphone" size={50} style={Style.mic} />
+            {gravando ? (
+              <Entypo name="controller-record" size={40} color={"#ff0000"} />
+            ) : (
+              <FontAwesome name="microphone" size={50} color={"#ffffff"} />
+            )}
           </LinearGradient>
         </TouchableOpacity>
       </View>
