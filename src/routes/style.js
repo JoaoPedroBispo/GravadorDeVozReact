@@ -5,7 +5,9 @@ const Style = StyleSheet.create({
   title: {
     marginTop: 5,
     flexDirection: "row",
-    fontSize: 30,
+    fontFamily: "SofiaSans-Regular",
+    fontSize: 35,
+
     color: "#939fba",
     flex: 1,
   },
@@ -13,7 +15,8 @@ const Style = StyleSheet.create({
   title2: {
     flexDirection: "row",
     fontSize: 30,
-    fontWeight: "bold",
+    fontWeight: "800",
+    fontFamily: "SofiaSans-Regular",
     color: "#3B3355",
   },
 
@@ -23,14 +26,16 @@ const Style = StyleSheet.create({
   },
 
   text: {
-    fontSize: 15,
+    fontSize: 16,
     right: 5,
+    fontFamily: "SofiaSans-Regular",
     color: "#3B3355",
   },
 
   textPro: {
-    fontSize: 16,
+    fontSize: 17,
     right: 15,
+    fontFamily: "SofiaSans-Regular",
     color: "#BFCDE0",
   },
 
@@ -43,8 +48,9 @@ const Style = StyleSheet.create({
   sejaProText: {
     color: "#3B3355",
     color: "white",
-    fontWeight: "500",
+    fontSize: 17,
     textAlign: "center",
+    fontFamily: "SofiaSans-Regular",
     top: 2,
   },
 

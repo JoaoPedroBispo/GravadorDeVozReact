@@ -16,6 +16,8 @@ import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import React, { useState } from "react";
 import Style from "./style";
+import RNFS from "react-native-fs";
+import Share from "react-native-share";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
 
 const audioRecorderPlayer = new AudioRecorderPlayer();
@@ -37,8 +39,6 @@ export default function Inicio() {
     grav: "Gravando",
   });
 
-  //Gravação
-
   const [tempo, setTempo] = useState({
     recordSecs: 0,
     recordTime: "00:00:00",
@@ -46,6 +46,7 @@ export default function Inicio() {
 
   async function onStartRecord() {
     setGravando(true);
+
     if (Platform.OS === "android") {
       try {
         const grants = await PermissionsAndroid.requestMultiple([
@@ -94,12 +95,29 @@ export default function Inicio() {
       recordSecs: 0,
       recordTime: tempo.recordTime,
     });
-    console.log(result);
+
+    const shareOptions = {
+      title: "Audio 1",
+      failOnCancel: false,
+      saveToFiles: true,
+      url: result,
+    };
+
+    await Share.open(shareOptions);
+
+    await RNFS.copyFile(result, RNFS.DocumentDirectoryPath + "/test.mp4")
+      .then((success) => {
+        console.log("file moved!", success);
+      })
+      .catch((err) => {
+        console.log("Error: " + err.message);
+      });
+
+    console.log("teste", result);
   }
 
-  const [gravando, setGravando] = useState(false);
-
   //
+  const [gravando, setGravando] = useState(false);
   const [defaultRating, setDefaultRating] = useState(0);
   const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]);
   const [modalVisible, setModalVisible] = useState(false);

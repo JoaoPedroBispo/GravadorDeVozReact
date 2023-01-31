@@ -14,13 +14,14 @@ const Style = StyleSheet.create({
   icon: {
     margin: 10,
     color: "#58566e",
-    marginTop: 28,
+    marginTop: 30,
   },
 
   title: {
-    marginTop: 31,
+    marginTop: 34,
+    fontFamily: "SofiaSans-Regular",
     flexDirection: "row",
-    fontSize: 21,
+    fontSize: 24,
     color: "#939fba",
     flex: 1,
   },
@@ -28,26 +29,27 @@ const Style = StyleSheet.create({
   title2: {
     marginTop: 31,
     flexDirection: "row",
-    fontSize: 21,
+    fontSize: 24,
     fontWeight: "bold",
     color: "#3B3355",
   },
 
   sejaPro: {
     margin: 5,
-    marginTop: 28,
+    marginTop: 30,
     marginRight: 10,
-    height: 35,
-    width: 80,
+    height: 33,
+    width: 89,
     borderRadius: 10,
     align: "center",
-    fontWeight: "bold",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#5D5D81",
   },
 
   sejaProText: {
+    fontSize: 20,
+    fontFamily: "SofiaSans-Regular",
     color: "white",
   },
 
@@ -59,13 +61,15 @@ const Style = StyleSheet.create({
 
   textGravar: {
     left: 70,
-    fontSize: 18,
+    fontSize: 19,
+    fontFamily: "SofiaSans-Regular",
     color: "#3B3355",
   },
 
   textOuvir: {
     right: 70,
-    fontSize: 18,
+    fontSize: 19,
+    fontFamily: "SofiaSans-Regular",
     color: "#3B3355",
   },
 
@@ -87,7 +91,8 @@ const Style = StyleSheet.create({
 
   textAudio: {
     color: "#000000",
-    fontSize: 19,
+    fontFamily: "SofiaSans-Regular",
+    fontSize: 20,
   },
 
   subTextCont: {
@@ -120,6 +125,7 @@ const Style = StyleSheet.create({
     height: null,
     borderRadius: 3,
     color: "#fff",
+    fontFamily: "SofiaSans-Medium",
     backgroundColor: "#3B3355",
     textAlign: "center",
   },

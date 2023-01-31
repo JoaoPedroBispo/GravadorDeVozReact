@@ -65,7 +65,7 @@ export default function Ouvir() {
         <View style={Style.subTextCont}>
           <Text style={Style.subText}>12/01/2023</Text>
           <Text style={Style.subText2}>14:30</Text>
-          <Text style={Style.subText3}>46,21kb</Text>
+          <Text style={Style.subText3}>46,21kB</Text>
         </View>
 
         <View style={Style.subTextCont}>
