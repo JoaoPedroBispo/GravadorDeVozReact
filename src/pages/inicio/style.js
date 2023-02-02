@@ -142,8 +142,9 @@ const Style = StyleSheet.create({
   },
   modalText: {
     color: "#000",
-    fontSize: 18,
+    fontSize: 20,
     top: 15,
+    fontFamily: "SofiaSans-Regular",
     textAlign: "center",
     fontWeight: "bold",
   },
@@ -169,7 +170,7 @@ const Style = StyleSheet.create({
     height: 42,
     width: 160,
     right: 10,
-    top: "100%",
+    top: 55,
     borderRadius: 10,
     align: "center",
     fontWeight: "bold",
@@ -179,14 +180,15 @@ const Style = StyleSheet.create({
   },
 
   SalvarText: {
+    fontFamily: "SofiaSans-Regular",
     color: "white",
-    fontSize: 19,
+    fontSize: 20,
   },
 
   cancelar: {
     height: 42,
     width: 92,
-    top: "100%",
+    top: 55,
     left: 10,
     borderRadius: 10,
     align: "center",
@@ -197,8 +199,9 @@ const Style = StyleSheet.create({
   },
 
   cancelarText: {
+    fontFamily: "SofiaSans-Regular",
     color: "white",
-    fontSize: 15,
+    fontSize: 20,
   },
 
   dropdown1BtnStyle: {
@@ -236,18 +239,20 @@ const Style = StyleSheet.create({
 
   modalText2: {
     color: "#000",
-    fontSize: 19,
+    fontSize: 20,
     margin: 10,
     top: 10,
+    fontFamily: "SofiaSans-Regular",
+    fontWeight: "700",
     textAlign: "center",
-    fontWeight: "bold",
   },
 
   modalText3: {
     color: "#000",
-    fontSize: 14,
+    fontSize: 15,
     margin: 12,
     top: 10,
+    fontFamily: "SofiaSans-Regular",
     lineHeight: 18,
     alignSelf: "center",
     textAlign: "center",
@@ -259,8 +264,8 @@ const Style = StyleSheet.create({
   },
 
   avaliar: {
-    height: 48,
-    width: 232,
+    height: 42,
+    width: 260,
     borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
@@ -268,8 +273,10 @@ const Style = StyleSheet.create({
   },
 
   avaliarText: {
+    fontFamily: "SofiaSans-Regular",
     color: "white",
     fontSize: 20,
+    fontWeight: "700",
   },
 
   ratingBarStyle: {

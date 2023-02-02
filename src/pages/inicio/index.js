@@ -15,6 +15,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import React, { useState } from "react";
+import sqlite from "../../classes/sqlite";
 import Style from "./style";
 import RNFS from "react-native-fs";
 import Share from "react-native-share";
@@ -96,27 +97,20 @@ export default function Inicio() {
       recordTime: tempo.recordTime,
     });
 
-    const shareOptions = {
-      title: "Audio 1",
-      failOnCancel: false,
-      saveToFiles: true,
-      url: result,
-    };
+    setModalVisible(!modalVisible);
+  }
 
-    await Share.open(shareOptions);
+  async function SalvarBanco() {
+    await sqlite.query(
+      `INSERT INTO audios (title, data_hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "", "", "${opcao}", "${tempo.recordTime}", "") `
+    );
 
-    await RNFS.copyFile(result, RNFS.DocumentDirectoryPath + "/test.mp4")
-      .then((success) => {
-        console.log("file moved!", success);
-      })
-      .catch((err) => {
-        console.log("Error: " + err.message);
-      });
-
-    console.log("teste", result);
+    console.log(await sqlite.query("SELECT * FROM audios"));
   }
 
   //
+  const [opcao, setOpcao] = useState();
+  const [nome, setNome] = useState("");
   const [gravando, setGravando] = useState(false);
   const [defaultRating, setDefaultRating] = useState(0);
   const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]);
@@ -159,17 +153,15 @@ export default function Inicio() {
       >
         <View style={Style.centeredView2}>
           <View style={Style.modalView}>
-            <TouchableOpacity style={Style.buttonIcon}>
+            <TouchableOpacity
+              style={Style.buttonIcon}
+              onPress={() => setModalStar(false)}
+            >
               <LinearGradient
                 colors={["#BFCDE0", "#5D5D81"]}
                 style={Style.closeButton}
               >
-                <AntDesign
-                  onPress={() => setModalStar(false)}
-                  name="close"
-                  size={20}
-                  style={Style.icon2}
-                />
+                <AntDesign name="close" size={20} style={Style.icon2} />
               </LinearGradient>
             </TouchableOpacity>
             <Text style={Style.modalText2}>
@@ -218,7 +210,11 @@ export default function Inicio() {
           <View style={Style.modalView}>
             <Text style={Style.modalText}>Salvar Gravação</Text>
             <TextInput
-              maxLength={14}
+              value={nome}
+              onChangeText={(tex) => {
+                setNome(tex);
+                console.log(tex);
+              }}
               style={Style.input}
               placeholder="Nome"
             ></TextInput>
@@ -226,6 +222,7 @@ export default function Inicio() {
             <SelectDropdown
               data={countries}
               onSelect={(selectedItem, index) => {
+                setOpcao(selectedItem);
                 console.log(selectedItem, index);
               }}
               defaultButtonText={"Tag"}
@@ -258,7 +255,9 @@ export default function Inicio() {
                   colors={["#BFCDE0", "#5D5D81"]}
                   style={Style.salvar}
                 >
-                  <Text style={Style.SalvarText}>Salvar</Text>
+                  <Text style={Style.SalvarText} onPress={SalvarBanco}>
+                    Salvar
+                  </Text>
                 </LinearGradient>
               </TouchableOpacity>
 
