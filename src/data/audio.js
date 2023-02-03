@@ -1,7 +1,7 @@
 class audio {
   createTable(tx) {
     tx.executeSql(`
-      CREATE TABLE IF NOT EXISTS audios(
+      CREATE TABLE IF NOT EXISTS audio(
         id_audio INTEGER,
         data_hora VARCHAR(20),
         title VARCHAR(20),

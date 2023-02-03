@@ -85,7 +85,7 @@ class Database {
   //Cria o banco de dados, caso ele já não exista
   createDatabase() {
     db.transaction((tx) => {
-      audios.createTable(tx);
+      audio.createTable(tx);
     }).catch((error) => {
       console.log("Query error: ", error);
     });

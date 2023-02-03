@@ -1,17 +1,20 @@
-import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, FlatList } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
+import { Item } from "./function";
 import React from "react";
-import { useState } from "react";
+import sqlite from "../../classes/sqlite";
+import { useState, useEffect } from "react";
 import Style from "./style";
 
 export default function Ouvir() {
   const [gravarState, setGravarState] = useState(false);
   const [playerState, setPlayerState] = useState(false);
+  const [list, setList] = useState([]);
 
   const navegation = useNavigation();
   const venda = () => {
@@ -25,6 +28,20 @@ export default function Ouvir() {
     setPlayerState(!playerState);
   }
 
+  function renderItem({ item }) {
+    return <Item data={item} />;
+  }
+
+  useEffect(() => {
+    async function getData() {
+      // set os valores do database
+      const data = await sqlite.query("SELECT * FROM audio");
+
+      setList(data);
+    }
+
+    getData();
+  }, []);
   return (
     <View style={Style.continer}>
       <View style={Style.header}>
@@ -60,33 +77,11 @@ export default function Ouvir() {
         </TouchableOpacity>
       </View>
 
-      <View style={Style.contAudio}>
-        <Text style={Style.textAudio}>Teste.mp4</Text>
-        <View style={Style.subTextCont}>
-          <Text style={Style.subText}>12/01/2023</Text>
-          <Text style={Style.subText2}>14:30</Text>
-          <Text style={Style.subText3}>46,21kB</Text>
-        </View>
-
-        <View style={Style.subTextCont}>
-          <Text style={Style.buttonEstudo}>Estudo</Text>
-          <Text style={Style.subText4}>00:45</Text>
-        </View>
-
-        <TouchableOpacity>
-          <Feather name="scissors" size={25} style={Style.iconAudio} />
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-          <Ionicons
-            name="ellipsis-vertical"
-            size={25}
-            style={Style.iconAudio2}
-          />
-        </TouchableOpacity>
-
-        <View style={Style.riscoAudio}></View>
-      </View>
+      <FlatList
+        data={list}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
 
       <View style={Style.contPlayer}>
         <LinearGradient colors={["#BFCDE0", "#5D5D81"]}>

@@ -85,7 +85,7 @@ const Style = StyleSheet.create({
 
   contAudio: {
     flex: 0.2,
-    marginTop: 20,
+    marginTop: 10,
     margin: 8,
   },
 
@@ -119,10 +119,11 @@ const Style = StyleSheet.create({
     opacity: 0.5,
   },
 
-  buttonEstudo: {
+  buttonTag: {
     marginTop: 3,
-    width: 50,
+    width: null,
     height: null,
+    borderWidth: 1,
     borderRadius: 3,
     color: "#fff",
     fontFamily: "SofiaSans-Medium",
@@ -132,7 +133,7 @@ const Style = StyleSheet.create({
 
   subText4: {
     color: "#000000",
-    marginTop: 6,
+    marginTop: 3,
     left: 10,
     fontSize: 12,
     opacity: 0.5,

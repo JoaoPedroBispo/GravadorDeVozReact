@@ -17,8 +17,6 @@ import SelectDropdown from "react-native-select-dropdown";
 import React, { useState } from "react";
 import sqlite from "../../classes/sqlite";
 import Style from "./style";
-import RNFS from "react-native-fs";
-import Share from "react-native-share";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
 
 const audioRecorderPlayer = new AudioRecorderPlayer();
@@ -101,11 +99,13 @@ export default function Inicio() {
   }
 
   async function SalvarBanco() {
+    const date = new Date().toLocaleString();
+    console.log("entrou");
     await sqlite.query(
-      `INSERT INTO audios (title, data_hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "", "", "${opcao}", "${tempo.recordTime}", "") `
+      `INSERT INTO audio (title, data_hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "", "${opcao}", "${tempo.recordTime}", "") `
     );
 
-    console.log(await sqlite.query("SELECT * FROM audios"));
+    console.log(await sqlite.query("SELECT * FROM audio"));
   }
 
   //
