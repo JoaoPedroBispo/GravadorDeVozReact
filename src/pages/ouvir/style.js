@@ -161,7 +161,7 @@ const Style = StyleSheet.create({
   },
 
   contPlayer: {
-    flex: 1,
+    flex: 0.4,
     alignItems: "center",
     justifyContent: "flex-end",
   },
@@ -226,6 +226,139 @@ const Style = StyleSheet.create({
     marginRight: 15,
     color: "white",
     fontSize: 20,
+  },
+
+  FlatList: {
+    flex: 1,
+  },
+
+  modalView: {
+    backgroundColor: "white",
+    borderRadius: 10,
+    width: 330,
+    height: 250,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalText: {
+    color: "#000",
+    fontSize: 20,
+    top: 25,
+    fontFamily: "SofiaSans-Regular",
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+
+  input: {
+    borderWidth: 1,
+    borderColor: "#3B3355",
+    padding: 10,
+    borderRadius: 5,
+    width: 260,
+    height: 47,
+    top: 50,
+    fontSize: 18,
+    textAlign: "left",
+    color: "#3B3355",
+  },
+
+  contButtton: {
+    flexDirection: "row",
+  },
+
+  salvar: {
+    height: 42,
+    width: 160,
+    right: 10,
+    top: 90,
+    borderRadius: 10,
+    align: "center",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5D5D81",
+  },
+
+  SalvarText: {
+    fontFamily: "SofiaSans-Regular",
+    color: "white",
+    fontSize: 20,
+  },
+
+  cancelar: {
+    height: 42,
+    width: 92,
+    top: 90,
+    left: 10,
+    borderRadius: 10,
+    align: "center",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5D5D81",
+  },
+
+  cancelarText: {
+    fontFamily: "SofiaSans-Regular",
+    color: "white",
+    fontSize: 20,
+  },
+
+  dropdown1BtnStyle: {
+    width: 100,
+    height: 100,
+    top: 40,
+    backgroundColor: "#FFF",
+    borderRadius: 7,
+    borderWidth: 1,
+    borderColor: "#3B3355",
+    marginBottom: 30,
+    opacity: 1,
+  },
+  dropdown1BtnTxtStyle: {
+    color: "#000",
+    textAlign: "left",
+  },
+  dropdown1RowStyle: {
+    backgroundColor: "#EFEFEF",
+  },
+  dropdown1RowTxtStyle: {
+    color: "#000",
+    left: 10,
+    textAlign: "left",
+  },
+
+  centeredView2: {
+    flex: 1,
+    width: 360,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonIcon: {
+    left: "95%",
+    top: -10,
+    position: "absolute",
+  },
+  icon2: {
+    color: "white",
+  },
+
+  closeButton: {
+    height: 30,
+    width: 30,
+    borderRadius: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5D5D81",
   },
 });
 

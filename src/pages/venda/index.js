@@ -59,6 +59,7 @@ export default function Venda() {
           </View>
           <View style={Style.circulo1}></View>
         </TouchableOpacity>
+
         <TouchableOpacity>
           <View style={Style.item2}>
             <Text style={Style.preçoItem1}>15,99</Text>
@@ -66,6 +67,7 @@ export default function Venda() {
           </View>
           <View style={Style.circulo1}></View>
         </TouchableOpacity>
+
         <TouchableOpacity>
           <View style={Style.item3}>
             <Text style={Style.promoItem3}>39,99</Text>

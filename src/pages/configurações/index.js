@@ -26,11 +26,11 @@ export default function Configurações() {
         </View>
         <View>
           <Text style={Style.text}>Fonte de áudio</Text>
-          <Text style={Style.subText}>Padão</Text>
+          <Text style={Style.subText}>Padrão</Text>
         </View>
         <View>
           <Text style={Style.text}>Qualidade da gravação</Text>
-          <Text style={Style.subText}>Padão</Text>
+          <Text style={Style.subText}>Padrão</Text>
         </View>
         <View>
           <Text style={Style.text}>Taxa de amostragem</Text>
@@ -45,11 +45,11 @@ export default function Configurações() {
         </View>
         <View>
           <Text style={Style.text}>Fonte de áudio</Text>
-          <Text style={Style.subText}>Padão</Text>
+          <Text style={Style.subText}>Padrão</Text>
         </View>
         <View>
           <Text style={Style.text}>Qualidade da gravação</Text>
-          <Text style={Style.subText}>Padão</Text>
+          <Text style={Style.subText}>Padrão</Text>
         </View>
         <View>
           <Text style={Style.text}>Taxa de amostragem</Text>
