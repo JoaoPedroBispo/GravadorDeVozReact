@@ -180,8 +180,11 @@ export default function Inicio() {
                 onPress={() => {
                   if (defaultRating >= 4) {
                     console.log(defaultRating);
+                    setModalStar(false);
+                    setModalVisible(false);
                   } else {
                     setModalStar(false);
+                    setModalVisible(false);
                   }
                 }}
               >

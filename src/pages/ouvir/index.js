@@ -23,7 +23,7 @@ import Style from "./style";
 export default function Ouvir() {
   const [gravarState, setGravarState] = useState(false);
   const [playerState, setPlayerState] = useState(false);
-  const [modalEdit, setModalEdit] = useState(false);
+
   const [list, setList] = useState([]);
 
   const navegation = useNavigation();
@@ -54,61 +54,6 @@ export default function Ouvir() {
   }, []);
   return (
     <View style={Style.continer}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalEdit}
-        enum="overFullScreen"
-        onRequestClose={() => {
-          setModalEdit(!modalEdit);
-        }}
-      >
-        <View style={Style.centeredView2}>
-          <View style={Style.modalView}>
-            <TouchableOpacity
-              style={Style.buttonIcon}
-              onPress={() => setModalStar(false)}
-            >
-              <LinearGradient
-                colors={["#BFCDE0", "#5D5D81"]}
-                style={Style.closeButton}
-              >
-                <AntDesign name="close" size={20} style={Style.icon2} />
-              </LinearGradient>
-            </TouchableOpacity>
-            <Text style={Style.modalText}>Propriedades</Text>
-            <TextInput
-              onChangeText={(tex) => {
-                setNome(tex);
-                console.log(tex);
-              }}
-              style={Style.input}
-              placeholder="Nome"
-            ></TextInput>
-
-            <View style={Style.contButtton}>
-              <TouchableOpacity>
-                <LinearGradient
-                  colors={["#BFCDE0", "#5D5D81"]}
-                  style={Style.salvar}
-                >
-                  <Text style={Style.SalvarText}>Editar</Text>
-                </LinearGradient>
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={() => setModalEdit(false)}>
-                <LinearGradient
-                  colors={["#5D5D81", "#3B3355"]}
-                  style={Style.cancelar}
-                >
-                  <MaterialIcons name="delete" size={25} style={Style.icon2} />
-                </LinearGradient>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
-
       <View style={Style.header}>
         <TouchableOpacity onPress={() => navegation.openDrawer()}>
           <Feather name="menu" size={32} style={Style.icon} />
