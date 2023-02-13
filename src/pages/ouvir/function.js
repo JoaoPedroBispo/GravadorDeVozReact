@@ -25,8 +25,8 @@ export function Item({ data }) {
     <View style={Style.contAudio}>
       <Text style={Style.textAudio}>{data.title}</Text>
       <View style={Style.subTextCont}>
-        <Text style={Style.subText}>{data.hora}</Text>
-        <Text style={Style.subText2}>08/2/2023</Text>
+        <Text style={Style.subText}>{data.data_hora}</Text>
+        <Text style={Style.subText2}></Text>
         <Text style={Style.subText3}>{data.tamanho}</Text>
       </View>
 
