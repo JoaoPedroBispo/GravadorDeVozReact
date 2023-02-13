@@ -105,7 +105,7 @@ export default function Inicio() {
       `INSERT INTO audio (title, data_hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "", "${opcao}", "${tempo.recordTime}", "") `
     );
 
-    console.log(await sqlite.query("SELECT * FROM audio"));
+    console.log(await sqlite.query(`SELECT * FROM audio`));
   }
 
   //

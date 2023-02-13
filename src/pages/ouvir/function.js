@@ -4,6 +4,7 @@ import Style from "./style";
 import { useNavigation } from "@react-navigation/native";
 import LinearGradient from "react-native-linear-gradient";
 import Feather from "react-native-vector-icons/Feather";
+import sqlite from "../../classes/sqlite";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
@@ -14,12 +15,18 @@ export function Navegar(navigation) {
 
 export function Item({ data }) {
   const [modalEdit, setModalEdit] = useState(false);
+
+  async function deleteId(id_audio) {
+    await sqlite.query(`DELETE FROM audio WHERE id_audio = ${id_audio}`);
+    console.log(await sqlite.query("SELECT * FROM audio"));
+  }
+
   return (
     <View style={Style.contAudio}>
       <Text style={Style.textAudio}>{data.title}</Text>
       <View style={Style.subTextCont}>
         <Text style={Style.subText}>{data.hora}</Text>
-        <Text style={Style.subText2}></Text>
+        <Text style={Style.subText2}>08/2/2023</Text>
         <Text style={Style.subText3}>{data.tamanho}</Text>
       </View>
 
@@ -71,7 +78,7 @@ export function Item({ data }) {
             ></TextInput>
 
             <View style={Style.contButtton}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => setModalEdit(false)}>
                 <LinearGradient
                   colors={["#BFCDE0", "#5D5D81"]}
                   style={Style.salvar}
@@ -80,7 +87,7 @@ export function Item({ data }) {
                 </LinearGradient>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => setModalEdit(false)}>
+              <TouchableOpacity onPress={() => deleteId(data.id_audio)}>
                 <LinearGradient
                   colors={["#5D5D81", "#3B3355"]}
                   style={Style.cancelar}
