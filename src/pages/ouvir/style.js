@@ -87,6 +87,7 @@ const Style = StyleSheet.create({
     flex: 0.2,
     marginTop: 10,
     margin: 8,
+    borderRadius: 5,
   },
 
   textAudio: {
@@ -358,6 +359,11 @@ const Style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#5D5D81",
+  },
+
+  selecionado: {
+    borderWidth: 2,
+    color: "black",
   },
 });
 

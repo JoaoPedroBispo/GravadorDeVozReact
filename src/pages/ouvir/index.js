@@ -13,8 +13,8 @@ import Style from "./style";
 export default function Ouvir() {
   const [gravarState, setGravarState] = useState(false);
   const [playerState, setPlayerState] = useState(false);
-
   const [list, setList] = useState([]);
+  const [atualiza, setAtualiza] = useState(false);
 
   const navegation = useNavigation();
   const venda = () => {
@@ -29,19 +29,19 @@ export default function Ouvir() {
   }
 
   function renderItem({ item }) {
-    return <Item data={item} />;
+    return <Item data={item} setAtualiza={setAtualiza} />;
   }
 
   useEffect(() => {
     async function getData() {
-      // set os valores do database
       const data = await sqlite.query("SELECT * FROM audio");
-
       setList(data);
     }
-
     getData();
-  }, []);
+  }, [atualiza]);
+
+  const [select, setSelect] = useState("+");
+
   return (
     <View style={Style.continer}>
       <View style={Style.header}>
@@ -82,6 +82,7 @@ export default function Ouvir() {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         style={Style.FlatList}
+        onPress={() => setSelect("+")}
       />
 
       <View style={Style.contPlayer}>

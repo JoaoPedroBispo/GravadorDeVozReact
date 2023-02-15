@@ -104,10 +104,12 @@ const Style = StyleSheet.create({
   },
   preçoItem1: {
     fontSize: 23,
+    textAlign: "center",
     fontWeight: "bold",
     color: "#5D5D81",
   },
   textItem1: {
+    textAlign: "center",
     fontSize: 18,
     color: "#5D5D81",
   },
@@ -115,22 +117,19 @@ const Style = StyleSheet.create({
   circulo1: {
     width: 15,
     height: 15,
-    top: 5,
+    top: 29,
     alignSelf: "center",
     borderRadius: 100,
     borderWidth: 1,
   },
 
-  item2: {
-    width: 90,
-    height: 90,
-    borderWidth: 2,
-    borderRadius: 10,
-    borderColor: "#5D5D81",
-    backgroundColor: "white",
-    align: "center",
-    alignItems: "center",
-    justifyContent: "center",
+  circulo2: {
+    width: 15,
+    height: 15,
+    top: 20,
+    alignSelf: "center",
+    borderRadius: 100,
+    borderWidth: 1,
   },
 
   item3: {
@@ -148,16 +147,19 @@ const Style = StyleSheet.create({
   promoItem3: {
     textDecorationLine: "line-through",
     fontSize: 15,
+    textAlign: "center",
     color: "#5D5D81",
   },
 
   preçoItem3: {
     fontSize: 23,
+    textAlign: "center",
     fontWeight: "bold",
     color: "#5D5D81",
   },
   textItem3: {
     fontSize: 18,
+    textAlign: "center",
     fontWeight: "bold",
     color: "#5D5D81",
   },
@@ -165,7 +167,18 @@ const Style = StyleSheet.create({
   circulo3: {
     width: 20,
     height: 20,
-    top: 5,
+    top: 35,
+    alignSelf: "center",
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: "#5D5D81",
+    backgroundColor: "#5D5D81",
+  },
+
+  circulo4: {
+    width: 20,
+    height: 20,
+    top: 27,
     alignSelf: "center",
     borderRadius: 100,
     borderWidth: 1,

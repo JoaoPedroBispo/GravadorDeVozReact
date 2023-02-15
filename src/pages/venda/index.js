@@ -3,7 +3,7 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
 import LinearGradient from "react-native-linear-gradient";
-import React from "react";
+import React, { useState } from "react";
 import Style from "./style";
 
 export default function Venda() {
@@ -11,6 +11,8 @@ export default function Venda() {
   const navegar = () => {
     navegation.goBack();
   };
+
+  const [select, setSelect] = useState("+");
 
   return (
     <View style={Style.continer}>
@@ -52,29 +54,65 @@ export default function Venda() {
       </View>
 
       <View style={Style.items2}>
-        <TouchableOpacity>
-          <View style={Style.item1}>
+        <TouchableOpacity
+          onPress={() => setSelect("+")}
+          style={[Style.item1, select === "+" ? Style.item3 : false]}
+        >
+          <View>
             <Text style={Style.preçoItem1}>4,99</Text>
-            <Text style={Style.textItem1}>Mensal</Text>
+            <Text
+              style={[
+                Style.textItem1,
+                select === "+" ? Style.textItem3 : false,
+              ]}
+            >
+              Mensal
+            </Text>
           </View>
-          <View style={Style.circulo1}></View>
+          <View
+            style={[Style.circulo1, select === "+" ? Style.circulo3 : false]}
+          ></View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <View style={Style.item2}>
+        <TouchableOpacity
+          onPress={() => setSelect("-")}
+          style={[Style.item1, select === "-" ? Style.item3 : false]}
+        >
+          <View>
             <Text style={Style.preçoItem1}>15,99</Text>
-            <Text style={Style.textItem1}>Anual</Text>
+            <Text
+              style={[
+                Style.textItem1,
+                select === "-" ? Style.textItem3 : false,
+              ]}
+            >
+              Anual
+            </Text>
           </View>
-          <View style={Style.circulo1}></View>
+          <View
+            style={[Style.circulo1, select === "-" ? Style.circulo3 : false]}
+          ></View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <View style={Style.item3}>
+        <TouchableOpacity
+          onPress={() => setSelect("*")}
+          style={[Style.item1, select === "*" ? Style.item3 : false]}
+        >
+          <View>
             <Text style={Style.promoItem3}>39,99</Text>
             <Text style={Style.preçoItem3}>29,99</Text>
-            <Text style={Style.textItem3}>Vitalício</Text>
+            <Text
+              style={[
+                Style.textItem1,
+                select === "*" ? Style.textItem3 : false,
+              ]}
+            >
+              Vitalício
+            </Text>
           </View>
-          <View style={Style.circulo3}></View>
+          <View
+            style={[Style.circulo2, select === "*" ? Style.circulo4 : false]}
+          ></View>
         </TouchableOpacity>
       </View>
 
