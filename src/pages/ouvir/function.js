@@ -22,8 +22,6 @@ export function Item({ data, setAtualiza }) {
     setAtualiza(new Date());
   }
 
-  const [play, setPlay] = useState(false);
-
   return (
     <View>
       <TouchableOpacity>
@@ -40,7 +38,7 @@ export function Item({ data, setAtualiza }) {
             <Text style={Style.subText4}>{data.duracao}</Text>
           </View>
 
-          <TouchableOpacity onPress={() => setPlay(true)}>
+          <TouchableOpacity>
             <Feather name="scissors" size={25} style={Style.iconAudio} />
           </TouchableOpacity>
 
