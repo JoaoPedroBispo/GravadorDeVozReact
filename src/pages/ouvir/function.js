@@ -13,7 +13,7 @@ export function Navegar(navigation) {
   navigation.navigate("Principal");
 }
 
-export function Item({ data, setAtualiza }) {
+export function Item({ data, setAtualiza, TouchClique }) {
   const [modalEdit, setModalEdit] = useState(false);
 
   async function deleteId(id_audio) {
@@ -24,7 +24,7 @@ export function Item({ data, setAtualiza }) {
 
   return (
     <View>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={TouchClique}>
         <View style={Style.contAudio}>
           <Text style={Style.textAudio}>{data.title}</Text>
           <View style={Style.subTextCont}>

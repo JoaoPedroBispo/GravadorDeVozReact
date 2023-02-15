@@ -13,6 +13,7 @@ import Style from "./style";
 export default function Ouvir() {
   const [playerState, setPlayerState] = useState(false);
   const [list, setList] = useState([]);
+  const [cliqueLista, setCliqueLista] = useState(false);
   const [atualiza, setAtualiza] = useState(false);
 
   const navegation = useNavigation();
@@ -27,8 +28,14 @@ export default function Ouvir() {
     setPlayerState(!playerState);
   }
 
+  function TouchClique() {
+    setCliqueLista(!cliqueLista);
+  }
+
   function renderItem({ item }) {
-    return <Item data={item} setAtualiza={setAtualiza} />;
+    return (
+      <Item data={item} setAtualiza={setAtualiza} TouchClique={TouchClique} />
+    );
   }
 
   useEffect(() => {
@@ -80,43 +87,44 @@ export default function Ouvir() {
         keyExtractor={(item) => item.id}
         style={Style.FlatList}
       />
+      {cliqueLista ? (
+        <View style={Style.contPlayer}>
+          <LinearGradient colors={["#BFCDE0", "#5D5D81"]}>
+            <View style={Style.player}>
+              <Text style={Style.tempoPlayer1}>00:00</Text>
+              <View style={Style.ion}></View>
+              <View style={Style.tempo}></View>
+              <Text style={Style.tempoPlayer}>00:45</Text>
+            </View>
 
-      <View style={Style.contPlayer}>
-        <LinearGradient colors={["#BFCDE0", "#5D5D81"]}>
-          <View style={Style.player}>
-            <Text style={Style.tempoPlayer1}>00:00</Text>
-            <View style={Style.ion}></View>
-            <View style={Style.tempo}></View>
-            <Text style={Style.tempoPlayer}>00:45</Text>
-          </View>
+            <View style={Style.contPlayer2}>
+              <TouchableOpacity onPress={() => setModalEdit(true)}>
+                <SimpleLineIcons name="loop" size={20} style={Style.play} />
+              </TouchableOpacity>
 
-          <View style={Style.contPlayer2}>
-            <TouchableOpacity onPress={() => setModalEdit(true)}>
-              <SimpleLineIcons name="loop" size={20} style={Style.play} />
-            </TouchableOpacity>
+              <TouchableOpacity>
+                <AntDesign name="banckward" size={25} style={Style.play} />
+              </TouchableOpacity>
 
-            <TouchableOpacity>
-              <AntDesign name="banckward" size={25} style={Style.play} />
-            </TouchableOpacity>
+              <TouchableOpacity onPress={toggleMusicPlay}>
+                {playerState ? (
+                  <AntDesign name="pausecircle" size={65} style={Style.play} />
+                ) : (
+                  <AntDesign name="play" size={65} style={Style.play} />
+                )}
+              </TouchableOpacity>
 
-            <TouchableOpacity onPress={toggleMusicPlay}>
-              {playerState ? (
-                <AntDesign name="pausecircle" size={65} style={Style.play} />
-              ) : (
-                <AntDesign name="play" size={65} style={Style.play} />
-              )}
-            </TouchableOpacity>
+              <TouchableOpacity>
+                <AntDesign name="forward" size={25} style={Style.play} />
+              </TouchableOpacity>
 
-            <TouchableOpacity>
-              <AntDesign name="forward" size={25} style={Style.play} />
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Text style={Style.textPlayer}>1x</Text>
-            </TouchableOpacity>
-          </View>
-        </LinearGradient>
-      </View>
+              <TouchableOpacity>
+                <Text style={Style.textPlayer}>1x</Text>
+              </TouchableOpacity>
+            </View>
+          </LinearGradient>
+        </View>
+      ) : null}
     </View>
   );
 }
