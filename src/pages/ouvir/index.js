@@ -11,7 +11,6 @@ import { useState, useEffect } from "react";
 import Style from "./style";
 
 export default function Ouvir() {
-  const [gravarState, setGravarState] = useState(false);
   const [playerState, setPlayerState] = useState(false);
   const [list, setList] = useState([]);
   const [atualiza, setAtualiza] = useState(false);
@@ -39,8 +38,6 @@ export default function Ouvir() {
     }
     getData();
   }, [atualiza]);
-
-  const [select, setSelect] = useState("+");
 
   return (
     <View style={Style.continer}>
@@ -82,7 +79,6 @@ export default function Ouvir() {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         style={Style.FlatList}
-        onPress={() => setSelect("+")}
       />
 
       <View style={Style.contPlayer}>
