@@ -107,6 +107,7 @@ const Style = StyleSheet.create({
   },
 
   subText2: {
+    left: 8,
     color: "#000000",
     fontSize: 12,
     opacity: 0.5,

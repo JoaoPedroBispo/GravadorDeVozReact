@@ -28,8 +28,8 @@ export function Item({ data, setAtualiza, TouchClique }) {
         <View style={Style.contAudio}>
           <Text style={Style.textAudio}>{data.title}</Text>
           <View style={Style.subTextCont}>
-            <Text style={Style.subText}>{data.data_hora}</Text>
-            <Text style={Style.subText2}></Text>
+            <Text style={Style.subText}>{data.data}</Text>
+            <Text style={Style.subText2}>{data.hora}</Text>
             <Text style={Style.subText3}>{data.tamanho}</Text>
           </View>
 

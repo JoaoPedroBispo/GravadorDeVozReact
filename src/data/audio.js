@@ -3,7 +3,8 @@ class audio {
     tx.executeSql(`
       CREATE TABLE IF NOT EXISTS audio(
         id_audio INTEGER,
-        data_hora VARCHAR(20),
+        data VARCHAR(20),
+        hora VARCHAR(20),
         title VARCHAR(20),
         tamanho VARCHAR(20),
         tags VARCHAR(20),
