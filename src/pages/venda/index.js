@@ -40,7 +40,7 @@ export default function Venda() {
               </LinearGradient>
             </TouchableOpacity>
             <Text style={Style.title}>
-              Easy<Text style={Style.title2}>Redorder</Text>
+              Easy<Text style={Style.title2}>Recorder</Text>
             </Text>
           </View>
         </LinearGradient>

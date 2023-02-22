@@ -53,7 +53,7 @@ export default function Ouvir() {
           <Feather name="menu" size={32} style={Style.icon} />
         </TouchableOpacity>
         <Text style={Style.title}>
-          Easy<Text style={Style.title2}>Redorder</Text>
+          Easy<Text style={Style.title2}>Recorder</Text>
         </Text>
 
         <View>
@@ -98,7 +98,7 @@ export default function Ouvir() {
             </View>
 
             <View style={Style.contPlayer2}>
-              <TouchableOpacity onPress={() => setModalEdit(true)}>
+              <TouchableOpacity>
                 <SimpleLineIcons name="loop" size={20} style={Style.play} />
               </TouchableOpacity>
 

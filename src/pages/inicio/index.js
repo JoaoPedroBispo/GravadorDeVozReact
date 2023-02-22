@@ -280,7 +280,7 @@ export default function Inicio() {
           <Feather name="menu" size={32} style={Style.icon} />
         </TouchableOpacity>
         <Text style={Style.title}>
-          Easy<Text style={Style.title2}>Redorder</Text>
+          Easy<Text style={Style.title2}>Recorder</Text>
         </Text>
         <View>
           <TouchableOpacity onPress={() => venda()}>
