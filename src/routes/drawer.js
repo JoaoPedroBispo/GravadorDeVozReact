@@ -29,7 +29,7 @@ export default function drawer() {
           animation: "none",
           title: () => (
             <Text style={Style.title}>
-              Easy<Text style={Style.title2}>Redorder</Text>
+              Easy<Text style={Style.title2}>Recorder</Text>
             </Text>
           ),
           drawerActiveBackgroundColor: "transparent",
