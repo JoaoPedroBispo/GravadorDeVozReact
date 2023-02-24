@@ -104,9 +104,11 @@ export default function Inicio() {
     );
 
     console.log(await sqlite.query(`SELECT * FROM audio`));
+
+    setModalVisible(!modalVisible);
   }
 
-  //
+  //////////////////////////////////////////////////////////////////////////
   const [opcao, setOpcao] = useState();
   const [nome, setNome] = useState("");
   const [gravando, setGravando] = useState(false);
@@ -251,14 +253,12 @@ export default function Inicio() {
             />
 
             <View style={Style.contButtton}>
-              <TouchableOpacity onPress={() => setModalStar(true)}>
+              <TouchableOpacity onPress={SalvarBanco}>
                 <LinearGradient
                   colors={["#BFCDE0", "#5D5D81"]}
                   style={Style.salvar}
                 >
-                  <Text style={Style.SalvarText} onPress={SalvarBanco}>
-                    Salvar
-                  </Text>
+                  <Text style={Style.SalvarText}>Salvar</Text>
                 </LinearGradient>
               </TouchableOpacity>
 

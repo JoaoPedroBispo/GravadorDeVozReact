@@ -16,6 +16,16 @@ export function Navegar(navigation) {
 export function Item({ data, setAtualiza, TouchClique }) {
   const [modalEdit, setModalEdit] = useState(false);
 
+  const [nome, setNome] = useState("");
+
+  async function update(id_audio) {
+    await sqlite.query(
+      `UPDATE audio SET title="${nome}" WHERE id_audio = ${id_audio}`
+    );
+    setAtualiza(await sqlite.query(`SELECT * FROM audio`));
+    setModalEdit(!modalEdit);
+  }
+
   async function deleteId(id_audio) {
     await sqlite.query(`DELETE FROM audio WHERE id_audio = ${id_audio}`);
 
@@ -85,7 +95,7 @@ export function Item({ data, setAtualiza, TouchClique }) {
                 ></TextInput>
 
                 <View style={Style.contButtton}>
-                  <TouchableOpacity onPress={() => setModalEdit(false)}>
+                  <TouchableOpacity onPress={() => update(data.id_audio)}>
                     <LinearGradient
                       colors={["#BFCDE0", "#5D5D81"]}
                       style={Style.salvar}
