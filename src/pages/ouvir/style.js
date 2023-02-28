@@ -278,7 +278,7 @@ const Style = StyleSheet.create({
     height: 42,
     width: 160,
     right: 10,
-    top: 90,
+    marginTop: 90,
     borderRadius: 10,
     align: "center",
     fontWeight: "bold",
@@ -362,9 +362,11 @@ const Style = StyleSheet.create({
     backgroundColor: "#5D5D81",
   },
 
-  selecionado: {
-    borderWidth: 2,
-    color: "black",
+  backg: {
+    backgroundColor: "red",
+  },
+  backg2: {
+    backgroundColor: "white",
   },
 });
 

@@ -13,7 +13,7 @@ export function Navegar(navigation) {
   navigation.navigate("Principal");
 }
 
-export function Item({ data, setAtualiza, TouchClique }) {
+export function Item({ data, setAtualiza, setCliqueLista, cliqueLista }) {
   const [modalEdit, setModalEdit] = useState(false);
 
   const [nome, setNome] = useState("");
@@ -23,18 +23,25 @@ export function Item({ data, setAtualiza, TouchClique }) {
       `UPDATE audio SET title="${nome}" WHERE id_audio = ${id_audio}`
     );
     setAtualiza(await sqlite.query(`SELECT * FROM audio`));
-    setModalEdit(!modalEdit);
+    setModalEdit(false);
   }
 
   async function deleteId(id_audio) {
     await sqlite.query(`DELETE FROM audio WHERE id_audio = ${id_audio}`);
 
     setAtualiza(new Date());
+    setModalEdit(false);
   }
 
   return (
     <View>
-      <TouchableOpacity onPress={TouchClique}>
+      <TouchableOpacity
+        onPress={() => setCliqueLista(data.id_audio)}
+        style={[
+          Style.backg2,
+          cliqueLista === data.id_audio ? Style.backg : false,
+        ]}
+      >
         <View style={Style.contAudio}>
           <Text style={Style.textAudio}>{data.title}</Text>
           <View style={Style.subTextCont}>

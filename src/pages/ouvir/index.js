@@ -24,6 +24,8 @@ export default function Ouvir() {
     navegation.goBack();
   };
 
+  //Exibir é o toggleMusicPlay
+
   function toggleMusicPlay() {
     setPlayerState(!playerState);
   }
@@ -34,7 +36,12 @@ export default function Ouvir() {
 
   function renderItem({ item }) {
     return (
-      <Item data={item} setAtualiza={setAtualiza} TouchClique={TouchClique} />
+      <Item
+        data={item}
+        setAtualiza={setAtualiza}
+        setCliqueLista={setCliqueLista}
+        cliqueLista={cliqueLista}
+      />
     );
   }
 
