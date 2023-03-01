@@ -96,7 +96,7 @@ export default function Inicio() {
   }
 
   async function SalvarBanco() {
-    const Time = new Date().toLocaleTimeString();
+    const Time = new Date().toLocaleTimeString().format("D/MM/YYYY");
     const date = new Date().toLocaleDateString();
     await sqlite.query(
       `INSERT INTO audio (title, data, hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "${Time}", "", "${opcao}", "${tempo.recordTime}", "") `
