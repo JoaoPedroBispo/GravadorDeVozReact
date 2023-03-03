@@ -15,6 +15,7 @@ export default function Ouvir() {
   const [list, setList] = useState([]);
   const [cliqueLista, setCliqueLista] = useState(false);
   const [atualiza, setAtualiza] = useState(false);
+  const [recording, setRecording] = useState(false);
 
   const navegation = useNavigation();
   const venda = () => {
@@ -24,11 +25,12 @@ export default function Ouvir() {
     navegation.goBack();
   };
 
-  //Exibir é o toggleMusicPlay
-
+  //////Muda o estdado de play para stop/////
   function toggleMusicPlay() {
     setPlayerState(!playerState);
   }
+
+  /////Exibir é o TouchClique/////
 
   function TouchClique() {
     setCliqueLista(!cliqueLista);
@@ -43,6 +45,33 @@ export default function Ouvir() {
         cliqueLista={cliqueLista}
       />
     );
+  }
+
+  async function onStartPlay() {
+    const msg = await audioRecorderPlayer.startPlayer();
+    console.log(msg);
+    this.audioRecorderPlayer.addPlayBackListener((e) => {
+      this.setState({
+        currentPositionSec: e.currentPosition,
+        currentDurationSec: e.duration,
+        playTime: this.audioRecorderPlayer.mmssss(
+          Math.floor(e.currentPosition)
+        ),
+        duration: this.audioRecorderPlayer.mmssss(Math.floor(e.duration)),
+      });
+      return;
+    });
+    setPlayerState(!playerState);
+  }
+
+  async function onPausePlay() {
+    await this.audioRecorderPlayer.pausePlayer();
+  }
+
+  async function onStopPlay() {
+    console.log("onStopPlay");
+    this.audioRecorderPlayer.stopPlayer();
+    this.audioRecorderPlayer.removePlayBackListener();
   }
 
   useEffect(() => {
@@ -113,7 +142,7 @@ export default function Ouvir() {
                 <AntDesign name="banckward" size={25} style={Style.play} />
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={toggleMusicPlay}>
+              <TouchableOpacity onPress={recording ? onStopPlay : onStartPlay}>
                 {playerState ? (
                   <AntDesign name="pausecircle" size={65} style={Style.play} />
                 ) : (
