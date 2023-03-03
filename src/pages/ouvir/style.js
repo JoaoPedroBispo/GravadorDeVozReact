@@ -363,7 +363,7 @@ const Style = StyleSheet.create({
   },
 
   backg: {
-    backgroundColor: "red",
+    backgroundColor: "#D5D4D4",
   },
   backg2: {
     backgroundColor: "white",
