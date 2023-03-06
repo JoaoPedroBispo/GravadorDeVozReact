@@ -363,10 +363,13 @@ const Style = StyleSheet.create({
   },
 
   backg: {
-    backgroundColor: "#D5D4D4",
+    backgroundColor: "#F1F0F0",
+    borderRadius: 5,
+    left: 5,
   },
   backg2: {
     backgroundColor: "white",
+    left: 5,
   },
 });
 
