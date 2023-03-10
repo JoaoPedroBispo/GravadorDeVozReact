@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, FlatList } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import Foundation from "react-native-vector-icons/Foundation";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
@@ -9,13 +10,20 @@ import React from "react";
 import sqlite from "../../classes/sqlite";
 import { useState, useEffect } from "react";
 import Style from "./style";
+import AudioRecorderPlayer from "react-native-audio-recorder-player";
+import _ from "lodash";
 
 export default function Ouvir() {
-  const [playerState, setPlayerState] = useState(false);
   const [list, setList] = useState([]);
   const [cliqueLista, setCliqueLista] = useState(false);
   const [atualiza, setAtualiza] = useState(false);
   const [recording, setRecording] = useState(false);
+  const [positionSlide, setPositionSlide] = useState({
+    currentPositionSec: 1,
+    currentDurationSec: 20,
+    playTime: "00:00",
+    duration: "00:00",
+  });
 
   const navegation = useNavigation();
   const venda = () => {
@@ -26,8 +34,9 @@ export default function Ouvir() {
   };
 
   //////Muda o estdado de play para stop/////
-  function toggleMusicPlay() {
-    setPlayerState(!playerState);
+
+  function TouchPlay() {
+    setRecording(!recording);
   }
 
   /////Exibir é o TouchClique/////
@@ -41,37 +50,65 @@ export default function Ouvir() {
       <Item
         data={item}
         setAtualiza={setAtualiza}
+        TouchClique={TouchClique}
         setCliqueLista={setCliqueLista}
         cliqueLista={cliqueLista}
       />
     );
   }
 
+  async function idNext() {
+    try {
+      console.log(cliqueLista);
+      let index;
+      _.findIndex(list, (valor, i) => {
+        if (valor.id_audio === cliqueLista) {
+          index = i;
+        }
+      });
+      setCliqueLista(list[index + 1].id_audio);
+      console.log(index);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function idBack() {
+    try {
+      console.log(cliqueLista);
+      let index;
+      _.findIndex(list, (valor, i) => {
+        if (valor.id_audio === cliqueLista) {
+          index = i;
+        }
+      });
+      setCliqueLista(list[index - 1].id_audio);
+      console.log(index);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async function onStartPlay() {
+    setRecording(true);
     const msg = await audioRecorderPlayer.startPlayer();
     console.log(msg);
-    this.audioRecorderPlayer.addPlayBackListener((e) => {
-      this.setState({
+    audioRecorderPlayer.addPlayBackListener((e) => {
+      setPositionSlide({
         currentPositionSec: e.currentPosition,
         currentDurationSec: e.duration,
-        playTime: this.audioRecorderPlayer.mmssss(
-          Math.floor(e.currentPosition)
+        playTime: audioRecorderPlayer.mmss(
+          Math.floor(e.currentPosition / 1000)
         ),
-        duration: this.audioRecorderPlayer.mmssss(Math.floor(e.duration)),
+        duration: audioRecorderPlayer.mmss(Math.floor(e.duration / 1000)),
       });
       return;
     });
-    setPlayerState(!playerState);
   }
 
   async function onPausePlay() {
-    await this.audioRecorderPlayer.pausePlayer();
-  }
-
-  async function onStopPlay() {
-    console.log("onStopPlay");
-    this.audioRecorderPlayer.stopPlayer();
-    this.audioRecorderPlayer.removePlayBackListener();
+    setRecording(false);
+    await audioRecorderPlayer.pausePlayer();
   }
 
   useEffect(() => {
@@ -127,36 +164,36 @@ export default function Ouvir() {
         <View style={Style.contPlayer}>
           <LinearGradient colors={["#BFCDE0", "#5D5D81"]}>
             <View style={Style.player}>
-              <Text style={Style.tempoPlayer1}>00:00</Text>
+              <Text style={Style.tempoPlayer1}>{positionSlide.playTime}</Text>
               <View style={Style.ion}></View>
               <View style={Style.tempo}></View>
-              <Text style={Style.tempoPlayer}>00:45</Text>
+              <Text style={Style.tempoPlayer}>{positionSlide.playTime}</Text>
             </View>
 
             <View style={Style.contPlayer2}>
-              <TouchableOpacity>
+              {/* <TouchableOpacity>
                 <SimpleLineIcons name="loop" size={20} style={Style.play} />
+              </TouchableOpacity> */}
+
+              <TouchableOpacity style={Style.next} onPress={idBack}>
+                <AntDesign name="banckward" size={30} style={Style.play} />
               </TouchableOpacity>
 
-              <TouchableOpacity>
-                <AntDesign name="banckward" size={25} style={Style.play} />
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={recording ? onStopPlay : onStartPlay}>
-                {playerState ? (
-                  <AntDesign name="pausecircle" size={65} style={Style.play} />
+              <TouchableOpacity onPress={recording ? onPausePlay : onStartPlay}>
+                {recording ? (
+                  <Foundation name="pause" size={65} style={Style.play} />
                 ) : (
                   <AntDesign name="play" size={65} style={Style.play} />
                 )}
               </TouchableOpacity>
 
-              <TouchableOpacity>
-                <AntDesign name="forward" size={25} style={Style.play} />
+              <TouchableOpacity style={Style.next2} onPress={idNext}>
+                <AntDesign name="forward" size={30} style={Style.play} />
               </TouchableOpacity>
 
-              <TouchableOpacity>
+              {/* <TouchableOpacity>
                 <Text style={Style.textPlayer}>1x</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </LinearGradient>
         </View>

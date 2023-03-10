@@ -215,11 +215,19 @@ const Style = StyleSheet.create({
     alignItems: "center",
     align: "center",
     flexDirection: "row",
-    justifyContent: "space-between",
   },
 
   play: {
-    left: 15,
+    color: "white",
+  },
+
+  next: {
+    right: 30,
+    color: "white",
+  },
+
+  next2: {
+    left: 30,
     color: "white",
   },
 
@@ -277,8 +285,9 @@ const Style = StyleSheet.create({
   salvar: {
     height: 42,
     width: 160,
-    right: 10,
-    marginTop: 90,
+    right: -25,
+    position: "absolute",
+    top: 90,
     borderRadius: 10,
     align: "center",
     fontWeight: "bold",
@@ -297,7 +306,8 @@ const Style = StyleSheet.create({
     height: 42,
     width: 92,
     top: 90,
-    left: 10,
+    left: 45,
+    position: "absolute",
     borderRadius: 10,
     align: "center",
     fontWeight: "bold",

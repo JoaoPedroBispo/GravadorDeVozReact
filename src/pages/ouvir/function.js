@@ -13,7 +13,13 @@ export function Navegar(navigation) {
   navigation.navigate("Principal");
 }
 
-export function Item({ data, setAtualiza, setCliqueLista, cliqueLista }) {
+export function Item({
+  data,
+  setAtualiza,
+  setCliqueLista,
+  cliqueLista,
+  TouchClique,
+}) {
   const [modalEdit, setModalEdit] = useState(false);
 
   const [nome, setNome] = useState("");
@@ -95,7 +101,6 @@ export function Item({ data, setAtualiza, setCliqueLista, cliqueLista }) {
                 <TextInput
                   onChangeText={(tex) => {
                     setNome(tex);
-                    console.log(tex);
                   }}
                   style={Style.input}
                   placeholder="Nome"

@@ -16,6 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import React, { useState } from "react";
 import sqlite from "../../classes/sqlite";
+import RNFS from "react-native-fs";
 import Style from "./style";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
 
@@ -37,7 +38,7 @@ export default function Inicio() {
 
   const [tempo, setTempo] = useState({
     recordSecs: 0,
-    recordTime: "00:00:00",
+    recordTime: "00:00",
   });
 
   async function onStartRecord() {
@@ -76,14 +77,16 @@ export default function Inicio() {
     audioRecorderPlayer.addRecordBackListener((e) => {
       setTempo({
         recordSecs: e.currentPosition,
-        recordTime: audioRecorderPlayer.mmssss(Math.floor(e.currentPosition)),
+        recordTime: audioRecorderPlayer.mmss(
+          Math.floor(e.currentPosition / 1000)
+        ),
       });
       return;
     });
     console.log(result);
   }
 
-  async function onStopRecor() {
+  async function onStopRecord() {
     setGravando(false);
     const result = await audioRecorderPlayer.stopRecorder();
     audioRecorderPlayer.removeRecordBackListener();
@@ -92,6 +95,25 @@ export default function Inicio() {
       recordTime: tempo.recordTime,
     });
 
+    const nomeArquivo = Math.floor(Math.random() * 2000);
+
+    await RNFS.copyFile(
+      result,
+      RNFS.DocumentDirectoryPath + `${nomeArquivo}.mp4`
+    )
+      .then(async (success) => {
+        setCaminho(nomeArquivo);
+        const { size } = await RNFS.stat(
+          RNFS.DocumentDirectoryPath + `${nomeArquivo}.mp4`
+        );
+
+        setTamanhoArq(size);
+      })
+      .catch((err) => {
+        console.log("Error: " + err.message);
+      });
+
+    //setModalVisible serve para mostrar o modal
     setModalVisible(!modalVisible);
   }
 
@@ -99,7 +121,9 @@ export default function Inicio() {
     const Time = new Date().toLocaleTimeString();
     const date = new Date().toLocaleDateString();
     await sqlite.query(
-      `INSERT INTO audio (title, data, hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "${Time}", "", "${opcao}", "${tempo.recordTime}", "") `
+      `INSERT INTO audio (title, data, hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "${Time}", "${tamanhoArq}", "${opcao}", "${
+        tempo.recordTime
+      }", "${RNFS.DocumentDirectoryPath + `${caminho}.mp4`}") `
     );
 
     console.log(await sqlite.query(`SELECT * FROM audio`));
@@ -110,6 +134,8 @@ export default function Inicio() {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const [opcao, setOpcao] = useState();
   const [nome, setNome] = useState("");
+  const [caminho, setCaminho] = useState("");
+  const [tamanhoArq, setTamanhoArq] = useState();
   const [gravando, setGravando] = useState(false);
   const [defaultRating, setDefaultRating] = useState(0);
   const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]);
@@ -313,7 +339,7 @@ export default function Inicio() {
       </View>
 
       <View style={Style.contMic}>
-        <TouchableOpacity onPress={gravando ? onStopRecor : onStartRecord}>
+        <TouchableOpacity onPress={gravando ? onStopRecord : onStartRecord}>
           <LinearGradient
             colors={["#BFCDE0", "#5D5D81"]}
             style={Style.buttonMic}
