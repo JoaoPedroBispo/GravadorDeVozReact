@@ -179,14 +179,6 @@ const Style = StyleSheet.create({
     color: "white",
   },
 
-  ion: {
-    width: 13,
-    height: 13,
-    marginTop: 2,
-    left: 10,
-    borderRadius: 100,
-    backgroundColor: "white",
-  },
   tempoPlayer1: {
     width: 45,
     height: 20,
@@ -197,14 +189,19 @@ const Style = StyleSheet.create({
     textAlign: "center",
   },
 
-  tempo: {
-    width: 230,
-    height: 2,
-    marginTop: 3,
-    borderRadius: 100,
+  linha2: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+
+  texto: {
+    color: "#fff",
+    fontSize: 12,
     borderWidth: 1,
     borderColor: "#fff",
-    backgroundColor: "#fff",
+    marginRight: "5%",
+    fontFamily: "SofiaSans-Light",
   },
 
   contPlayer2: {
@@ -242,7 +239,7 @@ const Style = StyleSheet.create({
   },
 
   modalView: {
-    backgroundColor: "white",
+    backgroundColor: "#848484",
     borderRadius: 10,
     width: 330,
     height: 250,

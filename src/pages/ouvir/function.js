@@ -7,21 +7,16 @@ import Feather from "react-native-vector-icons/Feather";
 import sqlite from "../../classes/sqlite";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
+
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 export function Navegar(navigation) {
   navigation.navigate("Principal");
 }
 
-export function Item({
-  data,
-  setAtualiza,
-  setCliqueLista,
-  cliqueLista,
-  TouchClique,
-}) {
+export function Item({ data, setAtualiza, setCliqueLista, cliqueLista }) {
   const [modalEdit, setModalEdit] = useState(false);
-
+  const [modalEditcut, setModalEditcut] = useState(false);
   const [nome, setNome] = useState("");
 
   async function update(id_audio) {
@@ -61,7 +56,7 @@ export function Item({
             <Text style={Style.subText4}>{data.duracao}</Text>
           </View>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => setModalEditcut(true)}>
             <Feather name="scissors" size={25} style={Style.iconAudio} />
           </TouchableOpacity>
 
@@ -126,6 +121,52 @@ export function Item({
                         size={25}
                         style={Style.icon2}
                       />
+                    </LinearGradient>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+          </Modal>
+
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalEditcut}
+            enum="overFullScreen"
+            onRequestClose={() => {
+              setModalEditcut(!modalEditcut);
+            }}
+          >
+            <View style={Style.centeredView2}>
+              <View style={Style.modalView}>
+                <TouchableOpacity
+                  style={Style.buttonIcon}
+                  onPress={() => setModalEdit(false)}
+                >
+                  <LinearGradient
+                    colors={["#BFCDE0", "#5D5D81"]}
+                    style={Style.closeButton}
+                  >
+                    <AntDesign name="close" size={20} style={Style.icon2} />
+                  </LinearGradient>
+                </TouchableOpacity>
+
+                <View style={Style.contButtton}>
+                  <TouchableOpacity onPress={() => update(data.id_audio)}>
+                    <LinearGradient
+                      colors={["#BFCDE0", "#5D5D81"]}
+                      style={Style.salvar}
+                    >
+                      <Text style={Style.SalvarText}>Voltar</Text>
+                    </LinearGradient>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity onPress={() => deleteId(data.id_audio)}>
+                    <LinearGradient
+                      colors={["#5D5D81", "#3B3355"]}
+                      style={Style.cancelar}
+                    >
+                      <Text style={Style.SalvarText}>Cortar</Text>
                     </LinearGradient>
                   </TouchableOpacity>
                 </View>

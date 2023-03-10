@@ -12,6 +12,7 @@ import { useState, useEffect } from "react";
 import Style from "./style";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
 import _ from "lodash";
+import { Slider } from "@miblanchard/react-native-slider";
 
 export default function Ouvir() {
   const [list, setList] = useState([]);
@@ -91,16 +92,16 @@ export default function Ouvir() {
 
   async function onStartPlay() {
     setRecording(true);
-    const msg = await audioRecorderPlayer.startPlayer();
+    const msg = await AudioRecorderPlayer.startPlayer();
     console.log(msg);
-    audioRecorderPlayer.addPlayBackListener((e) => {
+    AudioRecorderPlayer.addPlayBackListener((e) => {
       setPositionSlide({
         currentPositionSec: e.currentPosition,
         currentDurationSec: e.duration,
-        playTime: audioRecorderPlayer.mmss(
+        playTime: AudioRecorderPlayer.mmss(
           Math.floor(e.currentPosition / 1000)
         ),
-        duration: audioRecorderPlayer.mmss(Math.floor(e.duration / 1000)),
+        duration: AudioRecorderPlayer.mmss(Math.floor(e.duration / 1000)),
       });
       return;
     });
@@ -108,7 +109,7 @@ export default function Ouvir() {
 
   async function onPausePlay() {
     setRecording(false);
-    await audioRecorderPlayer.pausePlayer();
+    await AudioRecorderPlayer.pausePlayer();
   }
 
   useEffect(() => {
@@ -165,16 +166,26 @@ export default function Ouvir() {
           <LinearGradient colors={["#BFCDE0", "#5D5D81"]}>
             <View style={Style.player}>
               <Text style={Style.tempoPlayer1}>{positionSlide.playTime}</Text>
-              <View style={Style.ion}></View>
-              <View style={Style.tempo}></View>
+
+              <Slider
+                containerStyle={{
+                  flex: 1,
+                  marginRight: "6%",
+                  marginLeft: "6%",
+                }}
+                thumbTintColor="#FFFFFF"
+                value={positionSlide.currentPositionSec}
+                minimumValue={1}
+                maximumValue={positionSlide.currentDurationSec}
+                step={1}
+                trackClickable={true}
+                maximumTrackTintColor="#e9f0ef"
+                minimumTrackTintColor="#fff"
+              />
               <Text style={Style.tempoPlayer}>{positionSlide.playTime}</Text>
             </View>
 
             <View style={Style.contPlayer2}>
-              {/* <TouchableOpacity>
-                <SimpleLineIcons name="loop" size={20} style={Style.play} />
-              </TouchableOpacity> */}
-
               <TouchableOpacity style={Style.next} onPress={idBack}>
                 <AntDesign name="banckward" size={30} style={Style.play} />
               </TouchableOpacity>
@@ -190,10 +201,6 @@ export default function Ouvir() {
               <TouchableOpacity style={Style.next2} onPress={idNext}>
                 <AntDesign name="forward" size={30} style={Style.play} />
               </TouchableOpacity>
-
-              {/* <TouchableOpacity>
-                <Text style={Style.textPlayer}>1x</Text>
-              </TouchableOpacity> */}
             </View>
           </LinearGradient>
         </View>
