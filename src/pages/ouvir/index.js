@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, FlatList } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Foundation from "react-native-vector-icons/Foundation";
-import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
+import Entypo from "react-native-vector-icons/Entypo";
 import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import { Item } from "./function";
@@ -13,6 +13,8 @@ import Style from "./style";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
 import _ from "lodash";
 import { Slider } from "@miblanchard/react-native-slider";
+
+const audioRecorderPlayer = new AudioRecorderPlayer();
 
 export default function Ouvir() {
   const [list, setList] = useState([]);
@@ -74,6 +76,7 @@ export default function Ouvir() {
     }
   }
 
+  //o underline é o lodash
   async function idBack() {
     try {
       console.log(cliqueLista);
@@ -187,19 +190,26 @@ export default function Ouvir() {
 
             <View style={Style.contPlayer2}>
               <TouchableOpacity style={Style.next} onPress={idBack}>
-                <AntDesign name="banckward" size={30} style={Style.play} />
+                <AntDesign name="banckward" size={35} style={Style.next} />
               </TouchableOpacity>
-
-              <TouchableOpacity onPress={recording ? onPausePlay : onStartPlay}>
-                {recording ? (
-                  <Foundation name="pause" size={65} style={Style.play} />
-                ) : (
-                  <AntDesign name="play" size={65} style={Style.play} />
-                )}
-              </TouchableOpacity>
+              <View style={Style.contPlayer3}>
+                <TouchableOpacity
+                  onPress={recording ? onPausePlay : onStartPlay}
+                >
+                  {recording ? (
+                    <Foundation name="pause" size={80} style={Style.play} />
+                  ) : (
+                    <Entypo
+                      name="controller-play"
+                      size={80}
+                      style={Style.play}
+                    />
+                  )}
+                </TouchableOpacity>
+              </View>
 
               <TouchableOpacity style={Style.next2} onPress={idNext}>
-                <AntDesign name="forward" size={30} style={Style.play} />
+                <AntDesign name="forward" size={35} style={Style.next2} />
               </TouchableOpacity>
             </View>
           </LinearGradient>

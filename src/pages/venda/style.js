@@ -215,6 +215,7 @@ const Style = StyleSheet.create({
     margin: 2,
     fontSize: 7,
     alignSelf: "center",
+    color: "#3B3355",
   },
 });
 

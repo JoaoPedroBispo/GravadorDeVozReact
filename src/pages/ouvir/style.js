@@ -238,8 +238,8 @@ const Style = StyleSheet.create({
     flex: 1,
   },
 
-  modalView: {
-    backgroundColor: "#848484",
+  modalViewEdit: {
+    backgroundColor: "white",
     borderRadius: 10,
     width: 330,
     height: 250,
@@ -253,6 +253,23 @@ const Style = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+
+  modalView: {
+    backgroundColor: "white",
+    borderRadius: 10,
+    width: 330,
+    height: 250,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+
   modalText: {
     color: "#000",
     fontSize: 20,
@@ -281,8 +298,8 @@ const Style = StyleSheet.create({
 
   salvar: {
     height: 42,
-    width: 160,
-    right: -25,
+    width: 120,
+    right: 25,
     position: "absolute",
     top: 90,
     borderRadius: 10,
@@ -301,9 +318,9 @@ const Style = StyleSheet.create({
 
   cancelar: {
     height: 42,
-    width: 92,
+    width: 120,
     top: 90,
-    left: 45,
+    left: 25,
     position: "absolute",
     borderRadius: 10,
     align: "center",
@@ -377,6 +394,25 @@ const Style = StyleSheet.create({
   backg2: {
     backgroundColor: "white",
     left: 5,
+  },
+
+  contPlayer3: {
+    position: "absolute",
+    justifyContent: "center",
+    alignItems: "center",
+    align: "center",
+  },
+
+  playmodal: {
+    right: 13,
+    color: "#3B3355",
+    justifyContent: "center",
+  },
+
+  playmodal2: {
+    right: 25,
+    color: "#3B3355",
+    justifyContent: "center",
   },
 });
 

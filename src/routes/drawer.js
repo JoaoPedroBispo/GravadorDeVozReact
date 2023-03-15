@@ -47,9 +47,7 @@ export default function drawer() {
               style={Style.sejaPro}
               colors={["#BFCDE0", "#5D5D81"]}
             >
-              <TouchableOpacity>
-                <Text style={Style.sejaProText}>Pro</Text>
-              </TouchableOpacity>
+              <Text style={Style.sejaProText}>Pro</Text>
             </LinearGradient>
           ),
         }}
