@@ -259,7 +259,7 @@ const Style = StyleSheet.create({
     borderRadius: 10,
     width: 330,
     height: 250,
-    alignItems: "center",
+
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -413,6 +413,19 @@ const Style = StyleSheet.create({
     right: 25,
     color: "#3B3355",
     justifyContent: "center",
+  },
+
+  editor: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+
+  timer2: {
+    fontFamily: "SofiaSans",
+    fontSize: 30,
+    fontWeight: "600",
+    color: "#5D5D81",
+    right: 85,
   },
 });
 

@@ -42,12 +42,13 @@ export default function Ouvir() {
     setRecording(!recording);
   }
 
-  /////Exibir é o TouchClique/////
+  /////para exibir o player é o TouchClique/////
 
   function TouchClique() {
     setCliqueLista(!cliqueLista);
   }
 
+  /////renderItem manda os valores para o function/////
   function renderItem({ item }) {
     return (
       <Item
@@ -94,17 +95,23 @@ export default function Ouvir() {
   }
 
   async function onStartPlay() {
+    let index;
+    _.findIndex(list, (valor, i) => {
+      if (valor.id_audio === cliqueLista) {
+        index = i;
+      }
+    });
     setRecording(true);
-    const msg = await AudioRecorderPlayer.startPlayer();
+    const msg = await audioRecorderPlayer.startPlayer(list[index].caminho);
     console.log(msg);
-    AudioRecorderPlayer.addPlayBackListener((e) => {
+    audioRecorderPlayer.addPlayBackListener((e) => {
       setPositionSlide({
         currentPositionSec: e.currentPosition,
         currentDurationSec: e.duration,
-        playTime: AudioRecorderPlayer.mmss(
+        playTime: audioRecorderPlayer.mmss(
           Math.floor(e.currentPosition / 1000)
         ),
-        duration: AudioRecorderPlayer.mmss(Math.floor(e.duration / 1000)),
+        duration: audioRecorderPlayer.mmss(Math.floor(e.duration / 1000)),
       });
       return;
     });
@@ -112,7 +119,7 @@ export default function Ouvir() {
 
   async function onPausePlay() {
     setRecording(false);
-    await AudioRecorderPlayer.pausePlayer();
+    await audioRecorderPlayer.pausePlayer();
   }
 
   useEffect(() => {
