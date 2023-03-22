@@ -258,7 +258,7 @@ const Style = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 10,
     width: 330,
-    height: 250,
+    height: 280,
 
     shadowColor: "#000",
     shadowOffset: {
@@ -404,13 +404,15 @@ const Style = StyleSheet.create({
   },
 
   playmodal: {
-    right: 13,
+    top: 0,
+    right: 50,
     color: "#3B3355",
     justifyContent: "center",
   },
 
   playmodal2: {
-    right: 25,
+    top: -10,
+    right: 60,
     color: "#3B3355",
     justifyContent: "center",
   },
@@ -424,8 +426,48 @@ const Style = StyleSheet.create({
     fontFamily: "SofiaSans",
     fontSize: 30,
     fontWeight: "600",
-    color: "#5D5D81",
+    color: "#3B3355",
     right: 85,
+  },
+
+  salvarTrimmer: {
+    height: 42,
+    width: 120,
+    right: 60,
+    position: "absolute",
+    top: 75,
+    borderRadius: 10,
+    align: "center",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5D5D81",
+  },
+
+  SalvarTextTrimmer: {
+    fontFamily: "SofiaSans-Regular",
+    color: "white",
+    fontSize: 20,
+  },
+
+  cancelarTrimmer: {
+    height: 42,
+    width: 120,
+    top: 75,
+    left: -15,
+    position: "absolute",
+    borderRadius: 10,
+    align: "center",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5D5D81",
+  },
+
+  cancelarTextTrimmer: {
+    fontFamily: "SofiaSans-Regular",
+    color: "white",
+    fontSize: 20,
   },
 });
 

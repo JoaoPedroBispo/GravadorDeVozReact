@@ -223,7 +223,7 @@ export function Item({ data, setAtualiza, setCliqueLista, cliqueLista }) {
                   </LinearGradient>
                 </TouchableOpacity>
 
-                <View Style={Style.trimmerView}>
+                <View>
                   <Trimmer
                     onHandleChange={onHandleChange}
                     totalDuration={posicaoTimerAudio.currentDurationSec}
@@ -236,6 +236,10 @@ export function Item({ data, setAtualiza, setCliqueLista, cliqueLista }) {
                     trackBackgroundColor="#BFCDE0"
                     trackBorderColor="##5D5D81"
                     scrubberColor="#b7e778"
+                    scrubberPosition={state.scrubberPosition}
+                    maximumZoomLevel={50}
+                    zoomMultiplier={-20}
+                    initialZoomValue={0.8}
                   />
                 </View>
 
@@ -250,13 +254,13 @@ export function Item({ data, setAtualiza, setCliqueLista, cliqueLista }) {
                         {recording ? (
                           <Foundation
                             name="pause"
-                            size={65}
+                            size={60}
                             style={Style.playmodal}
                           />
                         ) : (
                           <Entypo
                             name="controller-play"
-                            size={65}
+                            size={60}
                             style={Style.playmodal2}
                           />
                         )}
@@ -267,18 +271,18 @@ export function Item({ data, setAtualiza, setCliqueLista, cliqueLista }) {
                   <TouchableOpacity>
                     <LinearGradient
                       colors={["#BFCDE0", "#5D5D81"]}
-                      style={Style.salvar}
+                      style={Style.salvarTrimmer}
                     >
-                      <Text style={Style.SalvarText}>Cortar</Text>
+                      <Text style={Style.SalvarTextTrimmer}>Cortar</Text>
                     </LinearGradient>
                   </TouchableOpacity>
 
                   <TouchableOpacity onPress={() => setModalEditcut(false)}>
                     <LinearGradient
                       colors={["#5D5D81", "#3B3355"]}
-                      style={Style.cancelar}
+                      style={Style.cancelarTrimmer}
                     >
-                      <Text style={Style.SalvarText}>Voltar</Text>
+                      <Text style={Style.cancelarTextTrimmer}>Voltar</Text>
                     </LinearGradient>
                   </TouchableOpacity>
                 </View>
