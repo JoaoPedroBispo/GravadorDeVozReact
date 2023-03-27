@@ -49,7 +49,7 @@ export function Item({ data, setAtualiza, setCliqueLista, cliqueLista }) {
   const [nome, setNome] = useState("");
   const [state, setState] = useState({
     trimmerLeftHandlePosition: 0,
-    trimmerRightHandlePosition: 13,
+    trimmerRightHandlePosition: 5,
   });
   const [posicaoTimerAudio, setPosicaoTimerAudio] = useState({
     currentPositionSec: 10,
@@ -223,7 +223,7 @@ export function Item({ data, setAtualiza, setCliqueLista, cliqueLista }) {
                   </LinearGradient>
                 </TouchableOpacity>
 
-                <View>
+                <View style={Style.trimmer}>
                   <Trimmer
                     onHandleChange={onHandleChange}
                     totalDuration={posicaoTimerAudio.currentDurationSec}

@@ -469,6 +469,11 @@ const Style = StyleSheet.create({
     color: "white",
     fontSize: 20,
   },
+
+  trimmer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 
 export default Style;
