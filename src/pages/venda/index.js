@@ -31,7 +31,7 @@ export default function Venda() {
           style={Style.linearGradient}
         >
           <View style={Style.cont1}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navegar()}>
               <LinearGradient
                 colors={["#BFCDE0", "#5D5D81"]}
                 style={Style.buttonMic}
